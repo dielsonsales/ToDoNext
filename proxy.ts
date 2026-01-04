@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-export default function middleware(request: NextRequest) {
+export default function proxy(request: NextRequest) {
     const session = request.cookies.get('session_token');
     const { pathname } = request.nextUrl;
     if (pathname === '/' && !session) {
