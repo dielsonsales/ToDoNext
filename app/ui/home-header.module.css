@@ -1,0 +1,23 @@
+.wrapper {
+    background-color: white;
+    padding: 10px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.leftView {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.homeHeaderText {
+    font-weight: bold;
+    font-size: medium;
+}

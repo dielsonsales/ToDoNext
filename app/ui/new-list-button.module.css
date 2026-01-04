@@ -1,0 +1,22 @@
+.bottomBarButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    outline: inherit;
+}
+
+.buttonTitleWrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.buttonText {
+    color: blue;
+}
