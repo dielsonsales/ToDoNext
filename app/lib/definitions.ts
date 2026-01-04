@@ -7,3 +7,9 @@ export type Task = {
     // dueDate: Date;
     // done: boolean;
 };
+
+export type CustomTaskList = {
+    id: string;
+    icon: string;
+    title: string;
+}

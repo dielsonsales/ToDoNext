@@ -4,60 +4,62 @@ import styles from './ui/home.module.css';
 import TaskItem from "./ui/task-item";
 import NewListButton from "./ui/new-list-button";
 import HomeHeader from "./ui/home-header";
+import TaskListItem from './ui/task-list-item';
+import { Calendar, House, Star, Sun, User } from 'lucide-react';
 
 export default function Home() {
-  const tasks = [
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
-    {id: crypto.randomUUID(), icon: "🍷", title: "Tarefa"},
+  const taskListItems = [
+    {id: crypto.randomUUID(), icon: Sun, label: 'My Day', color: 'green'},
+    {id: crypto.randomUUID(), icon: Star, label: 'Important', color: 'orange'},
+    {id: crypto.randomUUID(), icon: Calendar, label: 'Planned', color: 'green'},
+    {id: crypto.randomUUID(), icon: User, label: 'Assigned to me', color: 'green'},
+    {id: crypto.randomUUID(), icon: House, label: 'Tasks', color: 'green'},
   ];
 
-  const taskItems = tasks.map(task => {
+  const taskListComponents = taskListItems.map(task => {
     return (
-      <TaskItem key={task.id} task={task}/>
+      <TaskListItem icon={task.icon} label={task.label} color={task.color} />
+    );
+  });
+
+  const customTaskListItems = [
+    {id: crypto.randomUUID(), icon: '🍷', title: 'Task 1'},
+    {id: crypto.randomUUID(), icon: '🍷', title: 'Task 2'},
+    {id: crypto.randomUUID(), icon: '🍷', title: 'Task 3'},
+    {id: crypto.randomUUID(), icon: '🍷', title: 'Task 4'},
+    {id: crypto.randomUUID(), icon: '🍷', title: 'Task 5'},
+    {id: crypto.randomUUID(), icon: '🍷', title: 'Task 6'},
+    {id: crypto.randomUUID(), icon: '🍷', title: 'Task 7'},
+    {id: crypto.randomUUID(), icon: '🍷', title: 'Task 8'},
+    {id: crypto.randomUUID(), icon: '🍷', title: 'Task 9'},
+    {id: crypto.randomUUID(), icon: '🍷', title: 'Task 10'},
+    {id: crypto.randomUUID(), icon: '🍷', title: 'Task 11'},
+    {id: crypto.randomUUID(), icon: '🍷', title: 'Task 12'},
+    {id: crypto.randomUUID(), icon: '🍷', title: 'Task 13'},
+    {id: crypto.randomUUID(), icon: '🍷', title: 'Task 14'},
+    {id: crypto.randomUUID(), icon: '🍷', title: 'Task 15'},
+    {id: crypto.randomUUID(), icon: '🍷', title: 'Task 16'},
+  ];
+
+  const customTaskListComponents = customTaskListItems.map(task => {
+    return (
+      <div className={styles.listItem}>
+        <p>{task.icon}</p>
+        <p>{task.title}</p>
+      </div>
     );
   });
 
   return (
     <div>
       <HomeHeader />
-      <div>
-        <ul className={styles.tasksList}>
-          {taskItems}
-        </ul>
-      </div>
+      <ul className={styles.specialTaskLists}>
+        {taskListComponents}
+      </ul>
+      <div className={styles.separator}></div>
+      <ul className={styles.customTaskLists}>
+        {customTaskListComponents}
+      </ul>
       <div className={styles.bottomBar}>
         <NewListButton />
       </div>

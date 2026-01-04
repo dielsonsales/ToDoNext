@@ -11,9 +11,22 @@
     justify-content: space-between;
 }
 
-.tasksList {
+.specialTaskLists {
     padding-top: 55px;
-    padding-bottom: 65px;
+    padding-left: 0px;
+    padding-right: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.separator {
+    width: 100%;
+    background-color: lightgray;
+    height: 1px;
+}
+
+.customTaskLists {
+    padding-bottom: 55px;
     padding-left: 0px;
     padding-right: 0px;
     display: flex;
@@ -28,4 +41,10 @@
     right: 0;
     height: 60px;
     padding: 10px;
+}
+
+.listItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
