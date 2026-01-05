@@ -13,14 +13,16 @@
 
 .userHeader {
     background-color: white;
-    padding: 10px;
+    padding: 8px;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.specialTaskLists {
+.taskLists {
+    list-style: none;
+    margin: 0;
     padding-left: 0px;
     padding-right: 0px;
     display: flex;
@@ -31,13 +33,6 @@
     width: 100%;
     background-color: lightgray;
     height: 1px;
-}
-
-.customTaskLists {
-    padding-left: 0px;
-    padding-right: 0px;
-    display: flex;
-    flex-direction: column;
 }
 
 .bottomBar {

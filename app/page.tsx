@@ -53,11 +53,11 @@ export default function Home() {
     <div className={styles.mainWrapper}>
       <HomeHeader />
       <main className={styles.scrollContent} >
-        <ul className={styles.specialTaskLists}>
+        <ul className={styles.taskLists}>
           {taskListComponents}
         </ul>
         <div className={styles.separator}></div>
-        <ul className={styles.customTaskLists}>
+        <ul className={styles.taskLists}>
           {customTaskListComponents}
         </ul>
       </main>
