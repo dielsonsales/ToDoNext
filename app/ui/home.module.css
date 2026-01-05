@@ -37,8 +37,10 @@
 
 .bottomBar {
     background-color: white;
-    height: 60px;
+    height: 40px;
     padding: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 .specialListItem {
