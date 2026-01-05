@@ -3,7 +3,7 @@
 import { LucideIcon } from 'lucide-react';
 import styles from './icon-button.module.css';
 
-interface IconButtonPorps {
+interface IconButtonProps {
     icon: LucideIcon;
     onClick: () => void;
     label: string;
@@ -17,7 +17,7 @@ export default function IconButton({
     label,
     color = "currentColor",
     size = 20
-}: IconButtonPorps) {
+}: IconButtonProps) {
     return (
         <button
             className={styles.button}
