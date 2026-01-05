@@ -8,7 +8,7 @@
 .scrollContent {
     flex: 1; /* takes all available space */
     overflow-y: auto; /* only section scrollable */
-    padding: 0;
+    padding: 0 8px 0 8px;
 }
 
 .userHeader {
