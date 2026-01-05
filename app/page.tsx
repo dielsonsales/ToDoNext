@@ -42,10 +42,10 @@ export default function Home() {
 
   const customTaskListComponents = customTaskListItems.map(task => {
     return (
-      <div key={task.id} className={styles.customListItem}>
+      <li key={task.id} className={styles.customListItem}>
         <p>{task.icon}</p>
         <p>{task.title}</p>
-      </div>
+      </li>
     );
   });
 
