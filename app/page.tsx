@@ -8,11 +8,11 @@ import { Calendar, House, Star, Sun, User } from 'lucide-react';
 
 export default function Home() {
   const taskListItems = [
-    {id: crypto.randomUUID(), icon: Sun, label: 'My Day', color: 'green'},
-    {id: crypto.randomUUID(), icon: Star, label: 'Important', color: 'orange'},
-    {id: crypto.randomUUID(), icon: Calendar, label: 'Planned', color: 'green'},
+    {id: crypto.randomUUID(), icon: Sun, label: 'My Day', color: 'gray'},
+    {id: crypto.randomUUID(), icon: Star, label: 'Important', color: 'pink'},
+    {id: crypto.randomUUID(), icon: Calendar, label: 'Planned', color: 'darkCyan'},
     {id: crypto.randomUUID(), icon: User, label: 'Assigned to me', color: 'green'},
-    {id: crypto.randomUUID(), icon: House, label: 'Tasks', color: 'green'},
+    {id: crypto.randomUUID(), icon: House, label: 'Tasks', color: 'gray'},
   ];
 
   const taskListComponents = taskListItems.map(task => {
