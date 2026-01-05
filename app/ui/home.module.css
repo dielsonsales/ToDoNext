@@ -21,7 +21,6 @@
 }
 
 .specialTaskLists {
-    padding-top: 55px;
     padding-left: 0px;
     padding-right: 0px;
     display: flex;
@@ -35,7 +34,6 @@
 }
 
 .customTaskLists {
-    padding-bottom: 55px;
     padding-left: 0px;
     padding-right: 0px;
     display: flex;
