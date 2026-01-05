@@ -50,18 +50,20 @@ export default function Home() {
   });
 
   return (
-    <div>
+    <div className={styles.mainWrapper}>
       <HomeHeader />
-      <ul className={styles.specialTaskLists}>
-        {taskListComponents}
-      </ul>
-      <div className={styles.separator}></div>
-      <ul className={styles.customTaskLists}>
-        {customTaskListComponents}
-      </ul>
-      <div className={styles.bottomBar}>
+      <main className={styles.scrollContent} >
+        <ul className={styles.specialTaskLists}>
+          {taskListComponents}
+        </ul>
+        <div className={styles.separator}></div>
+        <ul className={styles.customTaskLists}>
+          {customTaskListComponents}
+        </ul>
+      </main>
+      <footer className={styles.bottomBar}>
         <NewListButton />
-      </div>
+      </footer>
     </div>
   );
 }
