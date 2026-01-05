@@ -1,7 +1,6 @@
 "use client";
 
 import styles from './ui/home.module.css';
-import TaskItem from "./ui/task-item";
 import NewListButton from "./ui/new-list-button";
 import HomeHeader from "./ui/home-header";
 import TaskListItem from './ui/task-list-item';
