@@ -1,17 +1,17 @@
 import { LucideIcon } from 'lucide-react';
-import styles from './task-list-item.module.css';
+import styles from './special-task-list-item.module.css';
 
-interface TaskListItemProps {
+interface SpecialTaskListItemProps {
     icon: LucideIcon;
     label: string;
     color: string;
 }
 
-export default function TaskListItem({
+export default function SpecialTaskListItem({
     icon: Icon,
     label,
     color,
-}: TaskListItemProps) {
+}: SpecialTaskListItemProps) {
     return (
         <li>
             <div className={styles.wrapper}>

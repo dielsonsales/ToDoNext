@@ -3,7 +3,7 @@
 import styles from './ui/home.module.css';
 import NewListButton from "./ui/new-list-button";
 import HomeHeader from "./ui/home-header";
-import TaskListItem from './ui/task-list-item';
+import SpecialTaskListItem from './ui/special-task-list-item';
 import { Calendar, House, Star, Sun, User } from 'lucide-react';
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
 
   const taskListComponents = taskListItems.map(task => {
     return (
-      <TaskListItem icon={task.icon} label={task.label} color={task.color} />
+      <SpecialTaskListItem key={task.id} icon={task.icon} label={task.label} color={task.color} />
     );
   });
 
@@ -42,7 +42,7 @@ export default function Home() {
 
   const customTaskListComponents = customTaskListItems.map(task => {
     return (
-      <div className={styles.listItem}>
+      <div key={task.id} className={styles.customListItem}>
         <p>{task.icon}</p>
         <p>{task.title}</p>
       </div>

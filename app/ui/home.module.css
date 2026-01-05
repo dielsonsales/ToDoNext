@@ -43,7 +43,13 @@
     padding: 10px;
 }
 
-.listItem {
+.specialListItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.customListItem {
     display: flex;
     align-items: center;
     gap: 10px;
