@@ -1,6 +1,6 @@
 "use client";
 
-import styles from './ui/home.module.css';
+import styles from './home.module.css';
 import NewListButton from "./ui/new-list-button";
 import HomeHeader from "./ui/home-header";
 import SpecialTaskListItem from './ui/special-task-list-item';
