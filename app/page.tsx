@@ -51,7 +51,9 @@ export default function Home() {
 
   return (
     <div className={styles.mainWrapper}>
-      <HomeHeader />
+      <header>
+        <HomeHeader />
+      </header>
       <main className={styles.scrollContent} >
         <ul className={styles.taskLists}>
           {taskListComponents}
