@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: orange;
+}
+
+.headerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    height: 50px;
+}
+
+.backButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.actionButtonsGroup {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.scrollContent {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.bottomContainer {
+    background-color: orange;
+    height: 40px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}

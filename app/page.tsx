@@ -5,6 +5,7 @@ import NewListButton from "./ui/new-list-button";
 import HomeHeader from "./ui/home-header";
 import SpecialTaskListItem from './ui/special-task-list-item';
 import { Calendar, House, Star, Sun, User } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Home() {
   const taskListItems = [
@@ -42,10 +43,12 @@ export default function Home() {
 
   const customTaskListComponents = customTaskListItems.map(task => {
     return (
-      <li key={task.id} className={styles.customListItem}>
+      <Link href={`/task/${task.id}`} key={task.id} style={{ textDecoration: 'none', color: 'inherit'}}>
+        <li key={task.id} className={styles.customListItem}>
         <p>{task.icon}</p>
         <p>{task.title}</p>
       </li>
+      </Link>
     );
   });
 
