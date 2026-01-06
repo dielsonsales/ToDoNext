@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-color: orange;
+    background-color: rgb(200, 105, 101);
 }
 
 .headerContainer {
@@ -36,9 +36,31 @@
 }
 
 .bottomContainer {
-    background-color: orange;
+    background-color: rgb(200, 105, 101);
     height: 40px;
     padding: 10px;
     display: flex;
     justify-content: center;
+}
+
+.bottomForm {
+    display: flex;
+    justify-content: center;
+    flex: 1
+}
+
+.input {
+    flex: 1;
+    background: rgb(169, 80, 76);
+    border: none;
+    outline: none;
+    padding: 0 0 0 10px;
+    color: white;
+    border-radius: 5px;
+    font-size: 16;
+}
+
+.input::placeholder {
+    color: white;
+    opacity: 1;
 }

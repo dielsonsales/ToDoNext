@@ -3,15 +3,25 @@
 import { ChevronLeft, Ellipsis, Pencil } from 'lucide-react';
 import styles from './task-detail.module.css';
 import IconButton from '@/app/ui/icon-button';
+import { useState } from 'react';
 
 export default function TaskDetailPage() {
+    const [taskName, setTaskName] = useState("");
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault(); // Prevents refreshing the page
+        if (!taskName.trim()) return;
+        console.log("Adding new task");
+        setTaskName(""); // clears input
+    };
+
     return (
         <div className={styles.container}>
             <header>
                 <div className={styles.headerContainer}>
                     <button className={styles.backButton}>
                         <ChevronLeft size={26} />
-                        <p>Lists</p>
+                        <p style={{fontSize: 16}}>Lists</p>
                     </button>
                     <div className={styles.actionButtonsGroup}>
                         <IconButton icon={Pencil} label='Edit list' color='white' size={18} onClick={() => { console.log('Ellipsis') }} />
@@ -21,9 +31,15 @@ export default function TaskDetailPage() {
             </header>
             <main className={styles.scrollContent}></main>
             <footer className={styles.bottomContainer}>
-                <button>
-                    <p>Add a Task</p>
-                </button>
+                <form className={styles.bottomForm} onSubmit={handleSubmit}>
+                    <input
+                        type='text'
+                        className={styles.input}
+                        placeholder='Add a Task'
+                        value={taskName}
+                        onChange={(e) => setTaskName(e.target.value)}
+                    />
+                </form>
             </footer>
         </div>
     );
