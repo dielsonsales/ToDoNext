@@ -45,9 +45,9 @@ export default function Home() {
     return (
       <Link href={`/task/${task.id}`} key={task.id} style={{ textDecoration: 'none', color: 'inherit'}}>
         <li key={task.id} className={styles.customListItem}>
-        <p>{task.icon}</p>
-        <p>{task.title}</p>
-      </li>
+          <p>{task.icon}</p>
+          <p>{task.title}</p>
+        </li>
       </Link>
     );
   });
