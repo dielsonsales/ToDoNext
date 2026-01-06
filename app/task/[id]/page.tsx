@@ -4,6 +4,7 @@ import { ChevronLeft, Ellipsis, Pencil } from 'lucide-react';
 import styles from './task-detail.module.css';
 import IconButton from '@/app/ui/icon-button';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function TaskDetailPage() {
     const [taskName, setTaskName] = useState("");
@@ -19,10 +20,10 @@ export default function TaskDetailPage() {
         <div className={styles.container}>
             <header>
                 <div className={styles.headerContainer}>
-                    <button className={styles.backButton}>
+                    <Link href='/' className={styles.backLink}>
                         <ChevronLeft size={26} />
                         <p style={{fontSize: 16}}>Lists</p>
-                    </button>
+                    </Link>
                     <div className={styles.actionButtonsGroup}>
                         <IconButton icon={Pencil} label='Edit list' color='white' size={18} onClick={() => { console.log('Ellipsis') }} />
                         <IconButton icon={Ellipsis} label='More options' color='white' size={18} onClick={() => { console.log('Ellipsis') }} />
