@@ -20,7 +20,7 @@ export default function UserAvatar({ src, name, size = 35 }: UserAvatarProps) {
 
   return (
     <div
-      className={styles.avatarContainer}
+      className={styles.userAvatarContainer}
       style={{ width: size, height: size }}
     >
       {src ? (
@@ -29,10 +29,10 @@ export default function UserAvatar({ src, name, size = 35 }: UserAvatarProps) {
           alt={name}
           width={size}
           height={size}
-          className={styles.image}
+          className={styles.userAvatarImage}
         />
       ) : (
-        <div className={styles.fallback}>{initials}</div>
+        <div className={styles.userAvatarFallback}>{initials}</div>
       )}
     </div>
   );

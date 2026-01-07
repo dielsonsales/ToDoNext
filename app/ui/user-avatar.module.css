@@ -1,4 +1,4 @@
-.avatarContainer {
+.userAvatarContainer {
   position: relative;
   border-radius: 50%;
   overflow: hidden;
@@ -7,11 +7,11 @@
   background-color: rgb(247, 234, 234);
 }
 
-.image {
+.userAvatarImage {
   object-fit: cover;
 }
 
-.fallback {
+.userAvatarFallback {
   color: #555;
   font-weight: 600;
   font-size: 1rem;

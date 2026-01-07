@@ -10,9 +10,9 @@ interface TaskItemProps {
 
 export default function TaskItem({ title, checked, favorite }: TaskItemProps) {
   return (
-    <li className={styles.wrapper}>
-      <div className={styles.itemCard}>
-        <div className={styles.leftView}>
+    <li className={styles.taskItemContainer}>
+      <div className={styles.taskItemCard}>
+        <div className={styles.taskItemLeftView}>
           <IconButton
             icon={Circle}
             onClick={() => console.log("Checking")}

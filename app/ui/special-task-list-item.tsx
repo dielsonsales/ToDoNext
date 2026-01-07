@@ -14,7 +14,7 @@ export default function SpecialTaskListItem({
 }: SpecialTaskListItemProps) {
   return (
     <li>
-      <div className={styles.wrapper}>
+      <div className={styles.specialTaskListItemContainer}>
         <Icon color={color} size={20} />
         <p>{label}</p>
       </div>

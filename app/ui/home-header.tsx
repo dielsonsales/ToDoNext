@@ -9,8 +9,8 @@ interface HomeHeaderProps {}
 
 export default function HomeHeader() {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.leftView}>
+    <div className={styles.homeHeaderContainer}>
+      <div className={styles.homeHeaderLeftView}>
         <UserAvatar name={"David Nogueira"} size={35} />
         <h1 className={styles.homeHeaderText}>David Nogueira</h1>
       </div>

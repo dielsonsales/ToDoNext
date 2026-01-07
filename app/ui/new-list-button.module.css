@@ -1,4 +1,4 @@
-.bottomBarButton {
+.newListButton {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,12 +11,12 @@
   outline: inherit;
 }
 
-.buttonTitleWrapper {
+.newListButtonTitleWrapper {
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-.buttonText {
+.newListButtonText {
   color: blue;
 }

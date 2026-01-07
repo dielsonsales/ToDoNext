@@ -19,7 +19,7 @@ export default function IconButton({
   size = 20,
 }: IconButtonProps) {
   return (
-    <button className={styles.button} onClick={onClick} aria-label={label}>
+    <button className={styles.iconButton} onClick={onClick} aria-label={label}>
       <Icon color={color} size={size} strokeWidth={2} />
     </button>
   );
