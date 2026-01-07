@@ -1,56 +1,56 @@
 .mainWrapper {
-    display: flex;
-    flex-direction: column;
-    height: 100vh; /* full view height */
-    overflow: hidden; /* prevents the whole page from scrolling */
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* full view height */
+  overflow: hidden; /* prevents the whole page from scrolling */
 }
 
 .scrollContent {
-    flex: 1; /* takes all available space */
-    overflow-y: auto; /* only section scrollable */
-    padding: 0 8px 0 8px;
+  flex: 1; /* takes all available space */
+  overflow-y: auto; /* only section scrollable */
+  padding: 0 8px 0 8px;
 }
 
 .userHeader {
-    background-color: white;
-    padding: 8px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  background-color: white;
+  padding: 8px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .taskLists {
-    list-style: none;
-    margin: 0;
-    padding-left: 0px;
-    padding-right: 0px;
-    display: flex;
-    flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding-left: 0px;
+  padding-right: 0px;
+  display: flex;
+  flex-direction: column;
 }
 
 .separator {
-    width: 100%;
-    background-color: lightgray;
-    height: 1px;
+  width: 100%;
+  background-color: lightgray;
+  height: 1px;
 }
 
 .bottomBar {
-    background-color: white;
-    height: 40px;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
+  background-color: white;
+  height: 40px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .specialListItem {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .customListItem {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }

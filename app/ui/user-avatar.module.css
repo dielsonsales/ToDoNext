@@ -1,21 +1,21 @@
 .avatarContainer {
-    position: relative;
-    border-radius: 50%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    background-color: rgb(247, 234, 234);
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background-color: rgb(247, 234, 234);
 }
 
 .image {
-    object-fit: cover;
+  object-fit: cover;
 }
 
 .fallback {
-    color: #555;
-    font-weight: 600;
-    font-size: 1rem;
-    user-select: none;
-    text-align: center;
-    width: 100%;
+  color: #555;
+  font-weight: 600;
+  font-size: 1rem;
+  user-select: none;
+  text-align: center;
+  width: 100%;
 }

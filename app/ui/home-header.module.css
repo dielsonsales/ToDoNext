@@ -1,19 +1,19 @@
 .wrapper {
-    background-color: white;
-    padding: 8px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  background-color: white;
+  padding: 8px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .leftView {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .homeHeaderText {
-    font-weight: bold;
-    font-size: medium;
+  font-weight: bold;
+  font-size: medium;
 }
