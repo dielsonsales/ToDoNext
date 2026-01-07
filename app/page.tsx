@@ -38,22 +38,22 @@ export default function Home() {
   });
 
   const customTaskListItems = [
-    { id: crypto.randomUUID(), icon: "🍷", title: "Task 1" },
-    { id: crypto.randomUUID(), icon: "🍷", title: "Task 2" },
-    { id: crypto.randomUUID(), icon: "🍷", title: "Task 3" },
-    { id: crypto.randomUUID(), icon: "🍷", title: "Task 4" },
-    { id: crypto.randomUUID(), icon: "🍷", title: "Task 5" },
-    { id: crypto.randomUUID(), icon: "🍷", title: "Task 6" },
-    { id: crypto.randomUUID(), icon: "🍷", title: "Task 7" },
-    { id: crypto.randomUUID(), icon: "🍷", title: "Task 8" },
-    { id: crypto.randomUUID(), icon: "🍷", title: "Task 9" },
-    { id: crypto.randomUUID(), icon: "🍷", title: "Task 10" },
-    { id: crypto.randomUUID(), icon: "🍷", title: "Task 11" },
-    { id: crypto.randomUUID(), icon: "🍷", title: "Task 12" },
-    { id: crypto.randomUUID(), icon: "🍷", title: "Task 13" },
-    { id: crypto.randomUUID(), icon: "🍷", title: "Task 14" },
-    { id: crypto.randomUUID(), icon: "🍷", title: "Task 15" },
-    { id: crypto.randomUUID(), icon: "🍷", title: "Task 16" },
+    { id: crypto.randomUUID(), icon: "🍷", title: "List 1" },
+    { id: crypto.randomUUID(), icon: "🍷", title: "List 2" },
+    { id: crypto.randomUUID(), icon: "🍷", title: "List 3" },
+    { id: crypto.randomUUID(), icon: "🍷", title: "List 4" },
+    { id: crypto.randomUUID(), icon: "🍷", title: "List 5" },
+    { id: crypto.randomUUID(), icon: "🍷", title: "List 6" },
+    { id: crypto.randomUUID(), icon: "🍷", title: "List 7" },
+    { id: crypto.randomUUID(), icon: "🍷", title: "List 8" },
+    { id: crypto.randomUUID(), icon: "🍷", title: "List 9" },
+    { id: crypto.randomUUID(), icon: "🍷", title: "List 10" },
+    { id: crypto.randomUUID(), icon: "🍷", title: "List 11" },
+    { id: crypto.randomUUID(), icon: "🍷", title: "List 12" },
+    { id: crypto.randomUUID(), icon: "🍷", title: "List 13" },
+    { id: crypto.randomUUID(), icon: "🍷", title: "List 14" },
+    { id: crypto.randomUUID(), icon: "🍷", title: "List 15" },
+    { id: crypto.randomUUID(), icon: "🍷", title: "List 16" },
   ];
 
   const customTaskListComponents = customTaskListItems.map((task) => {
