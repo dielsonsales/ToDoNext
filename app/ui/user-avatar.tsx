@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import styles from "./user-avatar.module.css";
+import Image from 'next/image';
+import styles from './user-avatar.module.css';
 
 interface UserAvatarProps {
     src?: string;
@@ -11,9 +11,9 @@ interface UserAvatarProps {
 
 export default function UserAvatar({ src, name, size = 35 }: UserAvatarProps) {
     const initials = name
-        .split(" ")
+        .split(' ')
         .map((n) => n[0])
-        .join("")
+        .join('')
         .toUpperCase()
         .slice(0, 2); // only the 2 first letters
     console.log('Initials: ' + initials);
