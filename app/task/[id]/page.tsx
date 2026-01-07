@@ -57,14 +57,14 @@ export default function TaskDetailPage() {
   });
 
   return (
-    <div className={styles.container}>
+    <div className={styles.taskDetailcontainer}>
       <header>
-        <div className={styles.headerContainer}>
-          <Link href="/" className={styles.backLink}>
+        <div className={styles.taskDetailHeaderContainer}>
+          <Link href="/" className={styles.taskDetailBackLink}>
             <ChevronLeft size={26} />
             <p style={{ fontSize: 16 }}>Lists</p>
           </Link>
-          <div className={styles.actionButtonsGroup}>
+          <div className={styles.taskDetailActionButtonsGroup}>
             <IconButton
               icon={Pencil}
               label="Edit list"
@@ -86,14 +86,14 @@ export default function TaskDetailPage() {
           </div>
         </div>
       </header>
-      <main className={styles.scrollContent}>
+      <main className={styles.taskDetailScrollContent}>
         <ul style={{ margin: 0, padding: 0 }}>{taskComponents}</ul>
       </main>
-      <footer className={styles.bottomContainer}>
-        <form className={styles.bottomForm} onSubmit={handleSubmit}>
+      <footer className={styles.taskDetailBottomContainer}>
+        <form className={styles.taskDetailBottomForm} onSubmit={handleSubmit}>
           <input
             type="text"
-            className={styles.input}
+            className={styles.taskDetailInput}
             placeholder="Add a Task"
             value={taskName}
             onChange={(e) => setTaskName(e.target.value)}

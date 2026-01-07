@@ -63,7 +63,7 @@ export default function Home() {
         key={task.id}
         style={{ textDecoration: "none", color: "inherit" }}
       >
-        <li key={task.id} className={styles.customListItem}>
+        <li key={task.id} className={styles.homeCustomListItem}>
           <p>{task.icon}</p>
           <p>{task.title}</p>
         </li>
@@ -72,16 +72,16 @@ export default function Home() {
   });
 
   return (
-    <div className={styles.mainWrapper}>
+    <div className={styles.homeContainer}>
       <header>
         <HomeHeader />
       </header>
-      <main className={styles.scrollContent}>
-        <ul className={styles.taskLists}>{taskListComponents}</ul>
-        <div className={styles.separator}></div>
-        <ul className={styles.taskLists}>{customTaskListComponents}</ul>
+      <main className={styles.homeScrollContent}>
+        <ul className={styles.homeTaskLists}>{taskListComponents}</ul>
+        <div className={styles.homeSeparator} />
+        <ul className={styles.homeTaskLists}>{customTaskListComponents}</ul>
       </main>
-      <footer className={styles.bottomBar}>
+      <footer className={styles.homeBottomBar}>
         <NewListButton />
       </footer>
     </div>

@@ -1,26 +1,17 @@
-.mainWrapper {
+.homeContainer {
   display: flex;
   flex-direction: column;
   height: 100vh; /* full view height */
   overflow: hidden; /* prevents the whole page from scrolling */
 }
 
-.scrollContent {
+.homeScrollContent {
   flex: 1; /* takes all available space */
   overflow-y: auto; /* only section scrollable */
   padding: 0 8px 0 8px;
 }
 
-.userHeader {
-  background-color: white;
-  padding: 8px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.taskLists {
+.homeTaskLists {
   list-style: none;
   margin: 0;
   padding-left: 0px;
@@ -29,13 +20,13 @@
   flex-direction: column;
 }
 
-.separator {
+.homeSeparator {
   width: 100%;
   background-color: lightgray;
   height: 1px;
 }
 
-.bottomBar {
+.homeBottomBar {
   background-color: white;
   height: 40px;
   padding: 10px;
@@ -43,13 +34,7 @@
   justify-content: center;
 }
 
-.specialListItem {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.customListItem {
+.homeCustomListItem {
   display: flex;
   align-items: center;
   gap: 10px;

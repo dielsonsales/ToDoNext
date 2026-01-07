@@ -1,4 +1,4 @@
-.container {
+.taskDetailcontainer {
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -6,7 +6,7 @@
   overflow: hidden;
 }
 
-.headerContainer {
+.taskDetailHeaderContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -14,7 +14,7 @@
   height: 50px;
 }
 
-.backLink {
+.taskDetailBackLink {
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -22,20 +22,20 @@
   color: white;
 }
 
-.actionButtonsGroup {
+.taskDetailActionButtonsGroup {
   display: flex;
   align-items: center;
   justify-content: right;
 }
 
-.scrollContent {
+.taskDetailScrollContent {
   display: flex;
   flex: 1;
   flex-direction: column;
   overflow-y: auto;
 }
 
-.bottomContainer {
+.taskDetailBottomContainer {
   background-color: rgb(200, 105, 101);
   height: 40px;
   padding: 10px;
@@ -43,13 +43,13 @@
   justify-content: center;
 }
 
-.bottomForm {
+.taskDetailBottomForm {
   display: flex;
   justify-content: center;
   flex: 1;
 }
 
-.input {
+.taskDetailInput {
   flex: 1;
   background: rgb(169, 80, 76);
   border: none;
@@ -60,7 +60,7 @@
   font-size: 16;
 }
 
-.input::placeholder {
+.taskDetailInput::placeholder {
   color: white;
   opacity: 1;
 }
