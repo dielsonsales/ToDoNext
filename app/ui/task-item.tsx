@@ -13,10 +13,10 @@ export default function TaskItem({ title, checked, favorite }: TaskItemProps) {
         <li className={styles.wrapper}>
             <div className={styles.itemCard}>
                 <div className={styles.leftView}>
-                    <IconButton icon={Circle} onClick={() => console.log('Checking')} label="Toggle task" color="grey" />
+                    <IconButton icon={Circle} onClick={() => console.log('Checking')} label="Toggle task" color="grey" size={18} />
                     <p>🥛 Comprar leite</p>
                 </div>
-                <IconButton icon={Star} onClick={() => console.log('Favoriting')} label="Favorite" color="grey" />
+                <IconButton icon={Star} onClick={() => console.log('Favoriting')} label="Favorite" color="grey" size={18} />
             </div>
         </li>
     );
