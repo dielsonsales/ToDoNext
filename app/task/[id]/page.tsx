@@ -5,6 +5,7 @@ import styles from './task-detail.module.css';
 import IconButton from '@/app/ui/icon-button';
 import { useState } from 'react';
 import Link from 'next/link';
+import TaskItem from '@/app/ui/task-item';
 
 export default function TaskDetailPage() {
     const [taskName, setTaskName] = useState("");
@@ -15,6 +16,40 @@ export default function TaskDetailPage() {
         console.log("Adding new task");
         setTaskName(""); // clears input
     };
+
+    const tasks = [
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+        {id: crypto.randomUUID(), title: '🥛 Comprar leite'},
+    ];
+
+    const taskComponents = tasks.map(task => {
+        return (
+            <TaskItem title={task.title} key={task.id} checked={false} favorite={false} />
+        );
+    });
 
     return (
         <div className={styles.container}>
@@ -30,7 +65,11 @@ export default function TaskDetailPage() {
                     </div>
                 </div>
             </header>
-            <main className={styles.scrollContent}></main>
+            <main className={styles.scrollContent}>
+                <ul style={{margin: 0, padding: 0}}>
+                    {taskComponents}
+                </ul>
+            </main>
             <footer className={styles.bottomContainer}>
                 <form className={styles.bottomForm} onSubmit={handleSubmit}>
                     <input
