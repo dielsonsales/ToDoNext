@@ -1,9 +1,6 @@
-"use client";
-
 import styles from "./home-header.module.css";
-import IconButton from "./icon-button";
-import { Search } from "lucide-react";
 import UserAvatar from "./user-avatar";
+import HomeSearch from "./home-search";
 
 interface HomeHeaderProps {}
 
@@ -14,12 +11,7 @@ export default function HomeHeader() {
         <UserAvatar name={"David Nogueira"} size={35} />
         <h1 className={styles.homeHeaderText}>David Nogueira</h1>
       </div>
-      <IconButton
-        icon={Search}
-        label="search"
-        onClick={() => console.log("Doing a search")}
-        color="blue"
-      />
+      <HomeSearch />
     </div>
   );
 }
