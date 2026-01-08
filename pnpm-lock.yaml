@@ -13,6 +13,9 @@ importers:
       next:
         specifier: 16.1.1
         version: 16.1.1(@babel/core@7.28.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      parse:
+        specifier: ^8.0.0
+        version: 8.0.0
       react:
         specifier: 19.2.3
         version: 19.2.3
@@ -136,6 +139,13 @@ packages:
       }
     engines: { node: ">=6.0.0" }
     hasBin: true
+
+  "@babel/runtime-corejs3@7.28.4":
+    resolution:
+      {
+        integrity: sha512-h7iEYiW4HebClDEhtvFObtPmIvrd1SSfpI9EhOeKk4CtIK/ngBWFpuhCzhdmRKtg71ylcue+9I6dv54XYO1epQ==,
+      }
+    engines: { node: ">=6.9.0" }
 
   "@babel/template@7.27.2":
     resolution:
@@ -1171,12 +1181,24 @@ packages:
         integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==,
       }
 
+  core-js-pure@3.47.0:
+    resolution:
+      {
+        integrity: sha512-BcxeDbzUrRnXGYIVAGFtcGQVNpFcUhVjr6W7F8XktvQW2iJP9e66GP6xdKotCRFlrxBvNIBrhwKteRXqMV86Nw==,
+      }
+
   cross-spawn@7.0.6:
     resolution:
       {
         integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==,
       }
     engines: { node: ">= 8" }
+
+  crypto-js@4.2.0:
+    resolution:
+      {
+        integrity: sha512-KALDyEYgpY+Rlob/iriUtjV6d5Eq+Y191A5g4UqLAi8CyGP9N1+FdVbkc1SxKc2r4YAYqG8JzO2KGL+AizD70Q==,
+      }
 
   csstype@3.2.3:
     resolution:
@@ -1770,6 +1792,12 @@ packages:
         integrity: sha512-6pEjquH3rqaI6cYAXYPcz9MS4rY6R4ngRgrgfDshRptUZIc3lw0MCIJIGDj9++mfySOuPTHB4nrSW99BCvOPIA==,
       }
 
+  idb-keyval@6.2.2:
+    resolution:
+      {
+        integrity: sha512-yjD9nARJ/jb1g+CvD0tlhUHOrJ9Sy0P8T9MF3YaLlHnSRpwPfpTX0XIvpmw3gAJUmEu3FiICLBDPXVwyEvrleg==,
+      }
+
   ignore@5.3.2:
     resolution:
       {
@@ -2322,6 +2350,13 @@ packages:
       }
     engines: { node: ">=6" }
 
+  parse@8.0.0:
+    resolution:
+      {
+        integrity: sha512-T1PGLe+HaySulYSrS598tXZASgMwMAq8yQOJHtNEfxi14eYnbM89h51SXckEocIyHpOX/YnUY0C9iHH6ZTJ+Xg==,
+      }
+    engines: { node: ">=20.19.0 <21 || >=22.12.0 <23 || >=24.1.0 <25" }
+
   path-exists@4.0.0:
     resolution:
       {
@@ -2422,6 +2457,12 @@ packages:
     resolution:
       {
         integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==,
+      }
+
+  react-native-crypto-js@1.0.0:
+    resolution:
+      {
+        integrity: sha512-FNbLuG/HAdapQoybeZSoes1PWdOj0w242gb+e1R0hicf3Gyj/Mf8M9NaED2AnXVOX01b2FXomwUiw1xP1K+8sA==,
       }
 
   react@19.2.3:
@@ -2868,6 +2909,21 @@ packages:
       }
     engines: { node: ">=0.10.0" }
 
+  ws@8.18.3:
+    resolution:
+      {
+        integrity: sha512-PEIGCY5tSlUt50cqyMXfCzX+oOPqN0vuGqWzbcJ2xvnkzkq46oOpz7dQaTDBdfICb4N14+GARUDw2XV2N4tvzg==,
+      }
+    engines: { node: ">=10.0.0" }
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: ">=5.0.2"
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+
   yallist@3.1.1:
     resolution:
       {
@@ -2973,6 +3029,10 @@ snapshots:
   "@babel/parser@7.28.5":
     dependencies:
       "@babel/types": 7.28.5
+
+  "@babel/runtime-corejs3@7.28.4":
+    dependencies:
+      core-js-pure: 3.47.0
 
   "@babel/template@7.27.2":
     dependencies:
@@ -3579,11 +3639,15 @@ snapshots:
 
   convert-source-map@2.0.0: {}
 
+  core-js-pure@3.47.0: {}
+
   cross-spawn@7.0.6:
     dependencies:
       path-key: 3.1.1
       shebang-command: 2.0.0
       which: 2.0.2
+
+  crypto-js@4.2.0: {}
 
   csstype@3.2.3: {}
 
@@ -4092,6 +4156,8 @@ snapshots:
     dependencies:
       hermes-estree: 0.25.1
 
+  idb-keyval@6.2.2: {}
+
   ignore@5.3.2: {}
 
   ignore@7.0.5: {}
@@ -4419,6 +4485,17 @@ snapshots:
     dependencies:
       callsites: 3.1.0
 
+  parse@8.0.0:
+    dependencies:
+      "@babel/runtime-corejs3": 7.28.4
+      crypto-js: 4.2.0
+      idb-keyval: 6.2.2
+      react-native-crypto-js: 1.0.0
+      ws: 8.18.3
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+
   path-exists@4.0.0: {}
 
   path-key@3.1.1: {}
@@ -4459,6 +4536,8 @@ snapshots:
       scheduler: 0.27.0
 
   react-is@16.13.1: {}
+
+  react-native-crypto-js@1.0.0: {}
 
   react@19.2.3: {}
 
@@ -4854,6 +4933,8 @@ snapshots:
       isexe: 2.0.0
 
   word-wrap@1.2.5: {}
+
+  ws@8.18.3: {}
 
   yallist@3.1.1: {}
 
