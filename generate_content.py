@@ -28,7 +28,7 @@ def should_skip(path_obj):
     if filename in [
         'prompt.md',
         'generate_content.py',
-        'file_structure.md'
+        'file_structure.md',
         'LICENSE',
         'favicon.ico',
         'pnpm-lock.yaml',
