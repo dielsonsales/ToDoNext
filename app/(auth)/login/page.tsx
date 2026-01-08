@@ -16,12 +16,14 @@ export default function LoginPage() {
         />
         <p>Please, sign in to manage your tasks</p>
         <input
+          name="email"
           type="email"
           placeholder="Email"
           className={styles.input}
           required
         />
         <input
+          name="password"
           type="password"
           placeholder="Password"
           className={styles.input}
