@@ -1,7 +1,7 @@
 .taskDetailcontainer {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100dvh;
   background-color: rgb(200, 105, 101);
   overflow: hidden;
 }

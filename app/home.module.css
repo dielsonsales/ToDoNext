@@ -1,7 +1,7 @@
 .homeContainer {
   display: flex;
   flex-direction: column;
-  height: 100vh; /* full view height */
+  height: 100dvh;
   overflow: hidden; /* prevents the whole page from scrolling */
 }
 
