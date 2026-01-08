@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/parse": "^6.1.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

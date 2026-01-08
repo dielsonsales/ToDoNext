@@ -26,6 +26,9 @@ importers:
       "@types/node":
         specifier: ^20
         version: 20.19.27
+      "@types/parse":
+        specifier: ^6.1.0
+        version: 6.1.0
       "@types/react":
         specifier: ^19
         version: 19.2.7
@@ -681,6 +684,13 @@ packages:
       {
         integrity: sha512-N2clP5pJhB2YnZJ3PIHFk5RkygRX5WO/5f0WC08tp0wd+sv0rsJk3MqWn3CbNmT2J505a5336jaQj4ph1AdMug==,
       }
+
+  "@types/parse@6.1.0":
+    resolution:
+      {
+        integrity: sha512-V+pWo90wFJhD8FR+Qxt8zfB3lK1QWezVT0EyIcD9YModdifp8hXRH/gb63zZuKnxc+exp+ZLZp87zvEa6YTsHA==,
+      }
+    deprecated: This is a stub types definition. parse provides its own type definitions, so you do not need this installed.
 
   "@types/react-dom@19.2.3":
     resolution:
@@ -3317,6 +3327,13 @@ snapshots:
   "@types/node@20.19.27":
     dependencies:
       undici-types: 6.21.0
+
+  "@types/parse@6.1.0":
+    dependencies:
+      parse: 8.0.0
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
 
   "@types/react-dom@19.2.3(@types/react@19.2.7)":
     dependencies:
