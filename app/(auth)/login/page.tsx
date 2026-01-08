@@ -1,21 +1,11 @@
-"use client";
-
-import { useRouter } from "next/navigation";
+import { loginAction } from "./actions";
 import styles from "./login.module.css";
 import Image from "next/image";
 
 export default function LoginPage() {
-  const router = useRouter();
-
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    document.cookie = "session_token=mock_user_id; path=/; max-age=3600";
-    router.push("/");
-  };
-
   return (
     <div className={styles.container}>
-      <form className={styles.loginCard} onSubmit={handleLogin}>
+      <form className={styles.loginCard} action={loginAction}>
         <h1>Welcome to ToDoNext</h1>
         <Image
           src="/login-image.png"
