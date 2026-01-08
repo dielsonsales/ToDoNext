@@ -1,5 +1,3 @@
-"use client";
-
 import styles from "./home.module.css";
 import NewListButton from "./ui/new-list-button";
 import HomeHeader from "./ui/home-header";
