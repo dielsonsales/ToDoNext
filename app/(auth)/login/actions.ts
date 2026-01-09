@@ -4,13 +4,12 @@ import Parse from "@/app/lib/parse-server";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-export async function loginAction(formData: FormData) {
-  let isSuccess = false;
+export async function loginAction(prevState: any, formData: FormData) {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
 
   if (!email || !password) {
-    throw new Error("Missing credentials");
+    return { error: "Missing credentials" };
   }
 
   try {
@@ -25,14 +24,9 @@ export async function loginAction(formData: FormData) {
       secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
     });
-    isSuccess = true;
   } catch (error: any) {
-    // TODO: handle the error
-    console.error("Login failed:", error);
-    return;
+    return { error: "Invalid email or password" };
   }
 
-  if (isSuccess) {
-    redirect("/");
-  }
+  redirect("/");
 }
