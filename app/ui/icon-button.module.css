@@ -13,10 +13,10 @@
   color: inherit;
 }
 
-.button:hover {
+.iconButton:hover {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-.button:active {
+.iconButton:active {
   transform: scale(0.92);
 }
