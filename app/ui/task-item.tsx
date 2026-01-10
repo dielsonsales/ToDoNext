@@ -20,7 +20,7 @@ export default function TaskItem({ title, checked, favorite }: TaskItemProps) {
             color="grey"
             size={18}
           />
-          <p>🥛 Comprar leite</p>
+          <p>{title}</p>
         </div>
         <IconButton
           icon={Star}

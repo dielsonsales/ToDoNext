@@ -1,0 +1,36 @@
+.taskDetailScrollContent {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.taskDetailBottomContainer {
+  background-color: rgb(200, 105, 101);
+  height: 40px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.taskDetailBottomForm {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.taskDetailInput {
+  flex: 1;
+  background: rgb(169, 80, 76);
+  border: none;
+  outline: none;
+  padding: 0 0 0 10px;
+  color: white;
+  border-radius: 5px;
+  font-size: 16;
+}
+
+.taskDetailInput::placeholder {
+  color: white;
+  opacity: 1;
+}

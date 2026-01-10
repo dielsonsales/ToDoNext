@@ -5,7 +5,7 @@ import styles from "./icon-button.module.css";
 
 interface IconButtonProps {
   icon: LucideIcon;
-  onClick: () => void;
+  onClick?: () => void;
   label: string;
   color?: string;
   size?: number;
