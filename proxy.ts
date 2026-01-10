@@ -10,7 +10,7 @@ export default async function proxy(request: NextRequest) {
   const sessionToken = request.cookies.get("session_token")?.value;
   const { pathname } = request.nextUrl;
 
-  // 1. Logic for Login Page: 
+  // 1. Logic for Login Page:
   // If I'm on /login AND I'm already logged in, take me to Home.
   if (pathname === "/login" && sessionToken) {
     const isValid = await verifyParseSession(sessionToken);
@@ -21,7 +21,7 @@ export default async function proxy(request: NextRequest) {
 
   // 2. Logic for Protected Routes:
   const isProtectedRoute = pathname === "/" || pathname.startsWith("/task");
-  
+
   if (isProtectedRoute) {
     if (!sessionToken) {
       return NextResponse.redirect(new URL("/login", request.url));
@@ -46,7 +46,7 @@ async function verifyParseSession(token: string): Promise<boolean> {
         "X-Parse-Application-Id": process.env.PARSE_APP_ID!,
         "X-Parse-REST-API-Key": process.env.PARSE_REST_KEY!,
         "X-Parse-Session-Token": token,
-      }
+      },
     });
     return res.ok;
   } catch (error) {

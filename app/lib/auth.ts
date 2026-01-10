@@ -6,6 +6,6 @@ import Parse from "./parse-server";
  * @returns the current Parse User or null if the sessio is invalid.
  */
 export async function getCurrentSessionToken(): Promise<string | undefined> {
-    const cookieStore = await cookies();
-    return cookieStore.get("session_token")?.value;
+  const cookieStore = await cookies();
+  return cookieStore.get("session_token")?.value;
 }
