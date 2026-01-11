@@ -6,7 +6,6 @@ import HomeHeader from "./ui/home-header";
 import NewListButton from "./ui/new-list-button";
 import Link from "next/link";
 import { CustomTaskList } from "./lib/definitions";
-import SpecialTaskListItem from "./ui/special-task-list-item";
 import { Calendar, House, Star, Sun, User } from "lucide-react";
 
 interface HomeClientProps {
@@ -44,16 +43,14 @@ export default function HomeClient({ taskList }: HomeClientProps) {
   });
 
   const customTaskListComponents = taskList.map((task) => {
+    const iconElement = (<p>{task.icon}</p>);
     return (
-      <Link
-        href={`/task/${task.id}`}
-        key={task.id}
-        style={{ textDecoration: "none", color: "inherit" }}
-      >
-        <li key={task.id} className={styles.homeCustomListItem}>
-          <p>{task.icon}</p>
-          <p>{task.title}</p>
-        </li>
+      <Link href={`/task/${task.id}`} key={task.id} passHref>
+        <ListItem
+          key={task.id}
+          title={task.title}
+          media={iconElement}
+        />
       </Link>
     );
   });
@@ -64,11 +61,11 @@ export default function HomeClient({ taskList }: HomeClientProps) {
       <List strongIos insetIos>
         {taskListComponents}
       </List>
+      <div className={styles.homeSeparator} />
+      <List strongIos insetIos>
+        {customTaskListComponents}
+      </List>
       <Block>
-        <main className={styles.homeScrollContent}>
-          <div className={styles.homeSeparator} />
-          <ul className={styles.homeTaskLists}>{customTaskListComponents}</ul>
-        </main>
         <footer className={styles.homeBottomBar}>
           <NewListButton />
         </footer>
