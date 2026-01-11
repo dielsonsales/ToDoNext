@@ -54,7 +54,7 @@ export default function HomeClient({ defaultList, taskList }: HomeClientProps) {
       <Link href="/" key={listItem.id} passHref>
         <ListItem
           title={listItem.title}
-          media={<IconComponent size={24} color="gray" />}
+          media={<IconComponent size={24} style={{color: listItem.color}} />}
         />
       </Link>
     );
@@ -73,11 +73,11 @@ export default function HomeClient({ defaultList, taskList }: HomeClientProps) {
     <Page className="flex flex-col h-full">
       <HomeHeader />
       <Block insetIos className="flex-1 overflow-y-auto">
-        <List strongIos insetIos>
+        <List>
           {defaultListComponents}
         </List>
         <div className={styles.homeSeparator} />
-        <List strongIos insetIos>
+        <List>
           {customTaskListComponents}
         </List>
       </Block>

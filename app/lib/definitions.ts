@@ -14,6 +14,7 @@ export type DefaultList = {
   id: string;
   icon: string;
   title: string;
+  color: string;
 };
 
 export type CustomTaskList = {

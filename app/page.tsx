@@ -16,6 +16,7 @@ export default async function Home() {
       id: listItem.id as string,
       icon: listItem.get("icon") as string,
       title: listItem.get("title") as string,
+      color: listItem.get("color") as string,
     }));
   } catch (error) {
     console.error("Failed to fetch default list:", error);
