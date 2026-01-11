@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./home-client.module.css";
-import { Block, Navbar, Page } from "konsta/react";
+import { Block, List, ListItem, Navbar, Page } from "konsta/react";
 import HomeHeader from "./ui/home-header";
 import NewListButton from "./ui/new-list-button";
 import Link from "next/link";
@@ -33,12 +33,12 @@ export default function HomeClient({ taskList }: HomeClientProps) {
   ];
 
   const taskListComponents = taskListItems.map((task) => {
+    const IconComponent = task.icon;
     return (
-      <SpecialTaskListItem
+      <ListItem
         key={task.id}
-        icon={task.icon}
-        label={task.label}
-        color={task.color}
+        title={task.label}
+        media={<IconComponent size={24} color={task.color} />}
       />
     );
   });
@@ -58,21 +58,14 @@ export default function HomeClient({ taskList }: HomeClientProps) {
     );
   });
 
-  // return (
-  //   <Page>
-  //     <Navbar title="Test" />
-  //     <Block>
-  //       <p>Hello. The page exists.</p>
-  //     </Block>
-  //   </Page>
-  // );
-
   return (
     <Page>
       <HomeHeader />
+      <List strongIos insetIos>
+        {taskListComponents}
+      </List>
       <Block>
         <main className={styles.homeScrollContent}>
-          <ul className={styles.homeTaskLists}>{taskListComponents}</ul>
           <div className={styles.homeSeparator} />
           <ul className={styles.homeTaskLists}>{customTaskListComponents}</ul>
         </main>
