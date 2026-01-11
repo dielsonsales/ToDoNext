@@ -7,6 +7,9 @@ settings:
 importers:
   .:
     dependencies:
+      konsta:
+        specifier: ^5.0.6
+        version: 5.0.6
       lucide-react:
         specifier: ^0.562.0
         version: 0.562.0(react@19.2.3)
@@ -2117,6 +2120,13 @@ packages:
         integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==,
       }
 
+  konsta@5.0.6:
+    resolution:
+      {
+        integrity: sha512-qMwBigssLnqTHDfpFnLPMYYWP329FGI6jr+qMpzVXIRsvHUwRmE9y9jxKf8IURh1n4aCAaytD/04BS6yNoKd3w==,
+      }
+    engines: { node: ">= 4.7.0" }
+
   language-subtag-registry@0.3.23:
     resolution:
       {
@@ -2753,6 +2763,12 @@ packages:
         integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==,
       }
     engines: { node: ">= 0.4" }
+
+  tailwind-merge@3.4.0:
+    resolution:
+      {
+        integrity: sha512-uSaO4gnW+b3Y2aWoWfFpX62vn2sR3skfhbjsEnaBI81WD1wBLlHZe5sWf0AqjksNdYTbGBEd0UasQMT3SNV15g==,
+      }
 
   tinyglobby@0.2.15:
     resolution:
@@ -4351,6 +4367,10 @@ snapshots:
     dependencies:
       json-buffer: 3.0.1
 
+  konsta@5.0.6:
+    dependencies:
+      tailwind-merge: 3.4.0
+
   language-subtag-registry@0.3.23: {}
 
   language-tags@1.0.9:
@@ -4788,6 +4808,8 @@ snapshots:
       has-flag: 4.0.0
 
   supports-preserve-symlinks-flag@1.0.0: {}
+
+  tailwind-merge@3.4.0: {}
 
   tinyglobby@0.2.15:
     dependencies:
