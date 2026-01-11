@@ -2,9 +2,13 @@
 
 import { App } from "konsta/react";
 
-export default function KonstaProvider({ children}: { children: React.ReactNode }) {
+export default function KonstaProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <App theme="ios" safeAreas>
+    <App theme="ios" dark={false} safeAreas>
       {children}
     </App>
   );

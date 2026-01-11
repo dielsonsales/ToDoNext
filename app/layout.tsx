@@ -33,9 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <KonstaProvider>
-          {children}
-        </KonstaProvider>
+        <KonstaProvider>{children}</KonstaProvider>
       </body>
     </html>
   );

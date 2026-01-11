@@ -1,7 +1,11 @@
-:root {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
-}
+} */
 
 html,
 body {
@@ -11,12 +15,23 @@ body {
 }
 
 body {
+  @apply text-black bg-white;
+}
+
+/* html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+} */
+
+/* body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-}
+} */
 
 /* Disables the NextJS overlay */
-nextjs-portal {
+/* nextjs-portal {
   display: none !important;
-}
+} */
