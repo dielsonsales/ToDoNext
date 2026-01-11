@@ -56,20 +56,22 @@ export default function HomeClient({ taskList }: HomeClientProps) {
   });
 
   return (
-    <Page>
+    <Page className="flex flex-col h-full">
       <HomeHeader />
-      <List strongIos insetIos>
-        {taskListComponents}
-      </List>
-      <div className={styles.homeSeparator} />
-      <List strongIos insetIos>
-        {customTaskListComponents}
-      </List>
-      <Block>
-        <footer className={styles.homeBottomBar}>
-          <NewListButton />
-        </footer>
+      <Block insetIos className="flex-1 overflow-y-auto">
+        <List strongIos insetIos>
+          {taskListComponents}
+        </List>
+        <div className={styles.homeSeparator} />
+        <List strongIos insetIos>
+          {customTaskListComponents}
+        </List>
       </Block>
+      <footer className="shrink-0 pb-safe">
+        <div className={styles.homeBottomBar}>
+          <NewListButton />
+        </div>
+      </footer>
     </Page>
   );
 }
