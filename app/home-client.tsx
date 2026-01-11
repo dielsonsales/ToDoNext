@@ -51,21 +51,26 @@ export default function HomeClient({ defaultList, taskList }: HomeClientProps) {
   const defaultListComponents = defaultList.map((listItem) => {
     const IconComponent = IconMap[listItem.icon as IconName] || IconMap.star;
     return (
-      <Link href="/" key={listItem.id} passHref>
-        <ListItem
-          title={listItem.title}
-          media={<IconComponent size={24} style={{color: listItem.color}} />}
-        />
-      </Link>
+      <ListItem
+        key={listItem.id}
+        link
+        linkProps={{ href: "/" }}
+        title={listItem.title}
+        media={<IconComponent size={24} style={{ color: listItem.color }} />}
+      />
     );
   });
 
   const customTaskListComponents = taskList.map((task) => {
     const iconElement = <p>{task.icon}</p>;
     return (
-      <Link href={`/task/${task.id}`} key={task.id} passHref>
-        <ListItem key={task.id} title={task.title} media={iconElement} />
-      </Link>
+      <ListItem
+        key={task.id}
+        link
+        linkProps={{ href: `/task/${task.id}` }}
+        title={task.title}
+        media={iconElement}
+      />
     );
   });
 
@@ -73,13 +78,9 @@ export default function HomeClient({ defaultList, taskList }: HomeClientProps) {
     <Page className="flex flex-col h-full">
       <HomeHeader />
       <Block insetIos className="flex-1 overflow-y-auto">
-        <List>
-          {defaultListComponents}
-        </List>
+        <List>{defaultListComponents}</List>
         <div className={styles.homeSeparator} />
-        <List>
-          {customTaskListComponents}
-        </List>
+        <List>{customTaskListComponents}</List>
       </Block>
       <footer className="shrink-0 pb-safe">
         <div className={styles.homeBottomBar}>
