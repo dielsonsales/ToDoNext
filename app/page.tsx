@@ -9,32 +9,29 @@ export default async function Home() {
   const defaultListQuery = new Parse.Query("DefaultList");
   defaultListQuery.ascending("order");
   var defaultList: DefaultList[] = [];
+
+  const taskListQuery = new Parse.Query("TaskList");
+  taskListQuery.ascending("title");
+  var customTaskList: CustomTaskList[] = [];
+
   try {
-    const defaultListResult = await defaultListQuery.find({ sessionToken });
-    console.log(`Fetched ${defaultListResult.length} default items`);
+    const [defaultListResult, customTaskListResult] = await Promise.all([
+      defaultListQuery.find({ sessionToken }),
+      taskListQuery.find({ sessionToken }),
+    ]);
     defaultList = defaultListResult.map((listItem) => ({
       id: listItem.id as string,
       icon: listItem.get("icon") as string,
       title: listItem.get("title") as string,
       color: listItem.get("color") as string,
     }));
-  } catch (error) {
-    console.error("Failed to fetch default list:", error);
-  }
-
-  const taskListQuery = new Parse.Query("TaskList");
-  taskListQuery.ascending("title");
-  var customTaskList: CustomTaskList[] = [];
-  try {
-    const customTaskListItems = await taskListQuery.find({ sessionToken });
-    console.log(`Fetched ${customTaskListItems.length} items`);
-    customTaskList = customTaskListItems.map((customTask) => ({
+    customTaskList = customTaskListResult.map((customTask) => ({
       id: customTask.id as string,
       icon: (customTask.get("icon") as string) || "📋",
       title: customTask.get("title") as string,
     }));
   } catch (error) {
-    console.error("Failed to fetch lists:", error);
+    console.error("Failed to fetch items:", error);
   }
 
   return <HomeClient defaultList={defaultList} taskList={customTaskList} />;
