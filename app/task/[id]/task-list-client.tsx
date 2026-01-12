@@ -1,26 +1,29 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Task } from "@/app/lib/definitions";
 import TaskItem from "@/app/ui/task-item";
 import { List, ListInput, Navbar, NavbarBackLink, Page } from "konsta/react";
+import { createTaskAction } from "./actions";
 
 interface TaskListClientProps {
   tasks: Task[];
   listTitle: string;
+  listId: string;
 }
 
 export default function TaskListClient({
   tasks,
   listTitle,
+  listId,
 }: TaskListClientProps) {
-  const [taskName, setTaskName] = useState("");
+  // const [taskName, setTaskName] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault(); // Prevents refreshing the page
-    if (!taskName.trim()) return;
-    console.log("Adding new task");
-    setTaskName(""); // clears input
+  const clientAction = async (formData: FormData) => {
+    formData.append("listId", listId);
+    await createTaskAction(formData);
+    formRef.current?.reset(); // clear input
   };
 
   const taskComponents = tasks.map((task) => {
@@ -43,12 +46,11 @@ export default function TaskListClient({
       />
       <List insetIos>{taskComponents}</List>
       <footer className="fixed bottom-0 left-0 w-full bg-white pb-safe border-t">
-        <form onSubmit={handleSubmit}>
+        <form ref={formRef} action={clientAction}>
           <ListInput
+            name="title"
             type="text"
             placeholder="Add a Task"
-            value={taskName}
-            onChange={(e) => setTaskName(e.target.value)}
             className="!mb-0"
           />
         </form>

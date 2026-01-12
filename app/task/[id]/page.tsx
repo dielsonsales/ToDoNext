@@ -34,7 +34,11 @@ export default async function TaskDetailPage({
 
   return (
     <div className={styles.taskDetailcontainer}>
-      <TaskListClient tasks={tasks} listTitle={taskList.get("title")} />
+      <TaskListClient
+        tasks={tasks}
+        listTitle={taskList.get("title")}
+        listId={id}
+      />
     </div>
   );
 }
