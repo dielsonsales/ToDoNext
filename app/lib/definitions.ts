@@ -7,7 +7,7 @@ export type Task = {
   // note: string;
   // remindData: Date;
   // dueDate: Date;
-  // done: boolean;
+  done: boolean;
 };
 
 export type DefaultList = {

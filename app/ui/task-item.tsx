@@ -16,9 +16,12 @@ export default function TaskItem({ title, checked, favorite }: TaskItemProps) {
       title={title}
       media={
         <Checkbox
-          className="m-2"
+          className="m-3"
           component="div"
           checked={checked}
+          colors={{
+            bgCheckedIos: "bg-red-500",
+          }}
           onChange={() => console.log("Toggle")}
         />
       }

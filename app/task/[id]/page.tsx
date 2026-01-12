@@ -26,6 +26,7 @@ export default async function TaskDetailPage({
     tasks = tasksResult.map((task) => ({
       id: task.id as string,
       title: task.get("title") as string,
+      done: task.get("done") as boolean,
     }));
   } catch (error) {
     console.error("Failed to fetch tasks:", error);

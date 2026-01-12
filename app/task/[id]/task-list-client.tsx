@@ -28,7 +28,7 @@ export default function TaskListClient({
       <TaskItem
         key={task.id}
         title={task.title}
-        checked={false}
+        checked={task.done}
         favorite={false}
       />
     );
