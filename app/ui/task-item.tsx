@@ -13,7 +13,11 @@ export default function TaskItem({ title, checked, favorite }: TaskItemProps) {
     <ListItem
       className="bg-white m-2 rounded-lg shadow-sm"
       innerClassName="border-none"
-      title={title}
+      title={
+        checked ?
+        <del style={{color: "gray"}}>{title}</del> :
+        <span>{title}</span>
+      }
       media={
         <Checkbox
           className="m-3"
