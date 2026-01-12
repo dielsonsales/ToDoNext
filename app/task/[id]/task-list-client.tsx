@@ -1,17 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import styles from "./task-list-client.module.css";
 import { Task } from "@/app/lib/definitions";
 import TaskItem from "@/app/ui/task-item";
-import {
-  Link,
-  List,
-  ListInput,
-  Navbar,
-  NavbarBackLink,
-  Page,
-} from "konsta/react";
+import { List, ListInput, Navbar, NavbarBackLink, Page } from "konsta/react";
 
 interface TaskListClientProps {
   tasks: Task[];

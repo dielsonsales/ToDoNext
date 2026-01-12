@@ -1,6 +1,6 @@
 import { Circle, Star } from "lucide-react";
 import IconButton from "./icon-button";
-import styles from "./task-item.module.css";
+import { Checkbox, ListItem } from "konsta/react";
 
 interface TaskItemProps {
   title: string;
@@ -10,26 +10,19 @@ interface TaskItemProps {
 
 export default function TaskItem({ title, checked, favorite }: TaskItemProps) {
   return (
-    <li className={styles.taskItemContainer}>
-      <div className={styles.taskItemCard}>
-        <div className={styles.taskItemLeftView}>
-          <IconButton
-            icon={Circle}
-            onClick={() => console.log("Checking")}
-            label="Toggle task"
-            color="grey"
-            size={18}
-          />
-          <p>{title}</p>
-        </div>
-        <IconButton
-          icon={Star}
-          onClick={() => console.log("Favoriting")}
-          label="Favorite"
-          color="grey"
-          size={18}
+    <ListItem
+      className="bg-white m-2 rounded-lg shadow-sm"
+      innerClassName="border-none"
+      title={title}
+      media={
+        <Checkbox
+          className="m-2"
+          component="div"
+          checked={checked}
+          onChange={() => console.log("Toggle")}
         />
-      </div>
-    </li>
+      }
+      after={<IconButton icon={Star} label="Favorite" color="grey" size={18} />}
+    />
   );
 }

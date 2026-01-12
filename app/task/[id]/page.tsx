@@ -1,6 +1,4 @@
-import { ChevronLeft, Ellipsis, Pencil } from "lucide-react";
 import styles from "./task-detail.module.css";
-import Link from "next/link";
 import TaskListClient from "./task-list-client";
 import { getCurrentSessionToken } from "@/app/lib/auth";
 import Parse from "@/app/lib/parse-server";
@@ -35,28 +33,6 @@ export default async function TaskDetailPage({
 
   return (
     <div className={styles.taskDetailcontainer}>
-      <header>
-        <div className={styles.taskDetailHeaderContainer}>
-          <Link href="/" className={styles.taskDetailBackLink}>
-            <ChevronLeft size={26} />
-            <p style={{ fontSize: 16 }}>Lists</p>
-          </Link>
-          <div className={styles.taskDetailActionButtonsGroup}>
-            {/* <IconButton
-              icon={Pencil}
-              label="Edit list"
-              color="white"
-              size={18}
-            />
-            <IconButton
-              icon={Ellipsis}
-              label="More options"
-              color="white"
-              size={18}
-            /> */}
-          </div>
-        </div>
-      </header>
       <TaskListClient tasks={tasks} listTitle={taskList.get("title")} />
     </div>
   );
