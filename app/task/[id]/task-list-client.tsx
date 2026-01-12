@@ -36,7 +36,11 @@ export default function TaskListClient({
 
   return (
     <Page>
-      <Navbar title={listTitle} left={<NavbarBackLink href="/" />} />
+      <Navbar
+        title={listTitle}
+        className="text-white"
+        left={<NavbarBackLink href="/" />}
+      />
       <List insetIos>{taskComponents}</List>
       <footer className="fixed bottom-0 left-0 w-full bg-white pb-safe border-t">
         <form onSubmit={handleSubmit}>
