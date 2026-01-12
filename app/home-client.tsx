@@ -4,83 +4,17 @@ import styles from "./home-client.module.css";
 import { Block, List, ListItem, Navbar, Page } from "konsta/react";
 import HomeHeader from "./ui/home-header";
 import NewListButton from "./ui/new-list-button";
-import Link from "next/link";
-import {
-  DefaultList,
-  CustomTaskList,
-  IconMap,
-  IconName,
-} from "./lib/definitions";
-import { Calendar, House, Star, Sun, User } from "lucide-react";
 
 interface HomeClientProps {
-  defaultList: DefaultList[];
-  taskList: CustomTaskList[];
+  children: React.ReactNode;
 }
 
-export default function HomeClient({ defaultList, taskList }: HomeClientProps) {
-  // const taskListItems = [
-  //   { id: crypto.randomUUID(), icon: Sun, label: "My Day", color: "gray" },
-  //   { id: crypto.randomUUID(), icon: Star, label: "Important", color: "pink" },
-  //   {
-  //     id: crypto.randomUUID(),
-  //     icon: Calendar,
-  //     label: "Planned",
-  //     color: "darkCyan",
-  //   },
-  //   {
-  //     id: crypto.randomUUID(),
-  //     icon: User,
-  //     label: "Assigned to me",
-  //     color: "green",
-  //   },
-  //   { id: crypto.randomUUID(), icon: House, label: "Tasks", color: "gray" },
-  // ];
-
-  // const taskListComponents = taskListItems.map((task) => {
-  //   const IconComponent = task.icon;
-  //   return (
-  //     <ListItem
-  //       key={task.id}
-  //       title={task.label}
-  //       media={<IconComponent size={24} color={task.color} />}
-  //     />
-  //   );
-  // });
-
-  const defaultListComponents = defaultList.map((listItem) => {
-    const IconComponent = IconMap[listItem.icon as IconName] || IconMap.star;
-    return (
-      <ListItem
-        key={listItem.id}
-        link
-        linkProps={{ href: "/" }}
-        title={listItem.title}
-        media={<IconComponent size={24} style={{ color: listItem.color }} />}
-      />
-    );
-  });
-
-  const customTaskListComponents = taskList.map((task) => {
-    const iconElement = <p>{task.icon}</p>;
-    return (
-      <ListItem
-        key={task.id}
-        link
-        linkProps={{ href: `/task/${task.id}` }}
-        title={task.title}
-        media={iconElement}
-      />
-    );
-  });
-
+export default function HomeClient({ children }: HomeClientProps) {
   return (
     <Page className="flex flex-col h-full">
       <HomeHeader />
       <Block insetIos className="flex-1 overflow-y-auto">
-        <List>{defaultListComponents}</List>
-        <div className={styles.homeSeparator} />
-        <List>{customTaskListComponents}</List>
+        <List>{children}</List>
       </Block>
       <footer className="shrink-0 pb-safe">
         <div className={styles.homeBottomBar}>

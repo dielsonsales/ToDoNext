@@ -1,38 +1,56 @@
 import Parse from "./lib/parse-server";
 import { getCurrentSessionToken } from "./lib/auth";
 import HomeClient from "./home-client";
-import { CustomTaskList, DefaultList } from "./lib/definitions";
+import { IconMap, IconName } from "./lib/definitions";
+import HomeListItem from "./home-list-item";
 
 export default async function Home() {
   const sessionToken = await getCurrentSessionToken();
 
-  const defaultListQuery = new Parse.Query("DefaultList");
-  defaultListQuery.ascending("order");
-  var defaultList: DefaultList[] = [];
+  const defaultListQuery = new Parse.Query("DefaultList").ascending("order");
+  const taskListQuery = new Parse.Query("TaskList").ascending("title");
 
-  const taskListQuery = new Parse.Query("TaskList");
-  taskListQuery.ascending("title");
-  var customTaskList: CustomTaskList[] = [];
+  var defaultListResult: Parse.Object[] = [];
+  var customTaskListResult: Parse.Object[] = [];
 
   try {
-    const [defaultListResult, customTaskListResult] = await Promise.all([
+    [defaultListResult, customTaskListResult] = await Promise.all([
       defaultListQuery.find({ sessionToken }),
       taskListQuery.find({ sessionToken }),
     ]);
-    defaultList = defaultListResult.map((listItem) => ({
-      id: listItem.id as string,
-      icon: listItem.get("icon") as string,
-      title: listItem.get("title") as string,
-      color: listItem.get("color") as string,
-    }));
-    customTaskList = customTaskListResult.map((customTask) => ({
-      id: customTask.id as string,
-      icon: (customTask.get("icon") as string) || "📋",
-      title: customTask.get("title") as string,
-    }));
   } catch (error) {
     console.error("Failed to fetch items:", error);
   }
 
-  return <HomeClient defaultList={defaultList} taskList={customTaskList} />;
+  const defaultListElements = defaultListResult.map((parseObj) => {
+    const IconComponent =
+      IconMap[(parseObj.get("icon") as IconName) || IconMap.star];
+    return (
+      <HomeListItem
+        key={parseObj.id as string}
+        id={parseObj.id as string}
+        title={parseObj.get("title") as string}
+        icon={parseObj.get("icon") as string}
+        color={parseObj.get("color") as string}
+      />
+    );
+  });
+
+  const customListElements = customTaskListResult.map((parseObj) => (
+    <HomeListItem
+      key={parseObj.id as string}
+      id={parseObj.id as string}
+      title={parseObj.get("title") as string}
+      icon={parseObj.get("icon") as string}
+      href={`/task/${parseObj.id}`}
+    />
+  ));
+
+  return (
+    <HomeClient>
+      {defaultListElements}
+      <div className="w-full bg-gray-300 h-[1px]" />
+      {customListElements}
+    </HomeClient>
+  );
 }
