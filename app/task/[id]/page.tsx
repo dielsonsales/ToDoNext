@@ -18,8 +18,7 @@ export default async function TaskDetailPage({
   const taskList = await taskListQuery.get(id, { sessionToken });
   console.log(`List name is ${taskList.get("title")}`);
 
-  const query = new Parse.Query("Task");
-  query.ascending("title");
+  const query = new Parse.Query("Task").ascending("title");
   query.equalTo("list", taskList);
 
   var tasks: Task[] = [];
@@ -58,7 +57,7 @@ export default async function TaskDetailPage({
           </div>
         </div>
       </header>
-      <TaskListClient tasks={tasks} />
+      <TaskListClient tasks={tasks} listTitle={taskList.get("title")} />
     </div>
   );
 }

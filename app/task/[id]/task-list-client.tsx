@@ -4,12 +4,24 @@ import { useState } from "react";
 import styles from "./task-list-client.module.css";
 import { Task } from "@/app/lib/definitions";
 import TaskItem from "@/app/ui/task-item";
+import {
+  Link,
+  List,
+  ListInput,
+  Navbar,
+  NavbarBackLink,
+  Page,
+} from "konsta/react";
 
 interface TaskListClientProps {
   tasks: Task[];
+  listTitle: string;
 }
 
-export default function TaskListClient({ tasks }: TaskListClientProps) {
+export default function TaskListClient({
+  tasks,
+  listTitle,
+}: TaskListClientProps) {
   const [taskName, setTaskName] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -31,21 +43,20 @@ export default function TaskListClient({ tasks }: TaskListClientProps) {
   });
 
   return (
-    <div>
-      <main className={styles.taskDetailScrollContent}>
-        <ul style={{ margin: 0, padding: 0 }}>{taskComponents}</ul>
-      </main>
-      <footer className={styles.taskDetailBottomContainer}>
-        <form className={styles.taskDetailBottomForm} onSubmit={handleSubmit}>
-          <input
+    <Page>
+      <Navbar title={listTitle} left={<NavbarBackLink href="/" />} />
+      <List insetIos>{taskComponents}</List>
+      <footer className="fixed bottom-0 left-0 w-full bg-white pb-safe border-t">
+        <form onSubmit={handleSubmit}>
+          <ListInput
             type="text"
-            className={styles.taskDetailInput}
             placeholder="Add a Task"
             value={taskName}
             onChange={(e) => setTaskName(e.target.value)}
+            className="!mb-0"
           />
         </form>
       </footer>
-    </div>
+    </Page>
   );
 }
