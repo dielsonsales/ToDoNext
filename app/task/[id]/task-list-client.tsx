@@ -18,7 +18,6 @@ export default function TaskListClient({
   listTitle,
   listId,
 }: TaskListClientProps) {
-  // const [taskName, setTaskName] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
 
   const clientAction = async (formData: FormData) => {
@@ -31,9 +30,10 @@ export default function TaskListClient({
     return (
       <TaskItem
         key={task.id}
+        id={task.id}
+        listId={listId}
         title={task.title}
         checked={task.done}
-        favorite={false}
       />
     );
   });

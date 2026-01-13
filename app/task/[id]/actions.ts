@@ -32,3 +32,16 @@ export async function createTaskAction(formData: FormData) {
     console.error("Parse save error:", error);
   }
 }
+
+export async function deleteTaskAction(taskId: string, listId: string) {
+  const sessionToken = await getCurrentSessionToken();
+  try {
+    const Task = Parse.Object.extend("Task");
+    const task = new Task();
+    task.id = taskId;
+    await task.destroy({ sessionToken });
+    revalidatePath(`/task/${listId}`);
+  } catch (error) {
+    console.error("Parse delete error:", error);
+  }
+}

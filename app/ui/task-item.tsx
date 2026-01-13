@@ -1,14 +1,29 @@
-import { Circle, Star } from "lucide-react";
+import { Trash2 } from "lucide-react";
 import IconButton from "./icon-button";
 import { Checkbox, ListItem } from "konsta/react";
+import { deleteTaskAction } from "../task/[id]/actions";
 
 interface TaskItemProps {
+  id: string;
+  listId: string;
   title: string;
   checked: boolean;
-  favorite: boolean;
 }
 
-export default function TaskItem({ title, checked, favorite }: TaskItemProps) {
+export default function TaskItem({
+  id,
+  listId,
+  title,
+  checked,
+}: TaskItemProps) {
+  const handleDelete = async () => {
+    const confirmed = window.confirm(
+      `Are you sure you want to delete "${title}"`,
+    );
+    if (!confirmed) return;
+    await deleteTaskAction(id, listId);
+  };
+
   return (
     <ListItem
       className="bg-white my-1 mx-2 rounded-lg"
@@ -32,7 +47,13 @@ export default function TaskItem({ title, checked, favorite }: TaskItemProps) {
       }
       after={
         <div className="mx-2">
-          <IconButton icon={Star} label="Favorite" color="grey" size={18} />
+          <IconButton
+            icon={Trash2}
+            label="Favorite"
+            color="darkRed"
+            size={18}
+            onClick={handleDelete}
+          />
         </div>
       }
     />
