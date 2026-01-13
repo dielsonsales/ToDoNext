@@ -6,19 +6,20 @@ import { Search } from "lucide-react";
 
 export default function HomeHeader() {
   return (
-    <Navbar
-      title="David Nogueira"
-      className="top-0 sticky"
-      left={
-        <Link iconOnly onClick={() => console.log("Left view")}>
-          <UserAvatar name="David Nogueira" />
-        </Link>
-      }
-      right={
-        <Link iconOnly onClick={() => console.log("Search")}>
-          <Search size={22} />
-        </Link>
-      }
-    />
+    <div className="top-0 sticky m-2">
+      <Navbar
+        title="David Nogueira"
+        left={
+          <Link iconOnly onClick={() => console.log("Left view")}>
+            <UserAvatar name="David Nogueira" />
+          </Link>
+        }
+        right={
+          <Link iconOnly onClick={() => console.log("Search")}>
+            <Search size={22} />
+          </Link>
+        }
+      />
+    </div>
   );
 }
