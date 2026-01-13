@@ -58,7 +58,7 @@ export default function TaskListClient({
         {taskComponents}
       </List>
       <footer className="sticky bottom-4 left-0 w-full px-2 z-30 mt-auto">
-        <div className="bg-black/20 rounded-2xl p-2 backdrop-blur-xl shadow-lg">
+        <div className="bg-black/30 rounded-2xl p-2 backdrop-blur-xl shadow-lg">
           <form ref={formRef} action={clientAction}>
             <ListInput
               name="title"
