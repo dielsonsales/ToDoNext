@@ -38,14 +38,14 @@ export default function TaskListClient({
   });
 
   return (
-    <Page>
+    <Page className="flex flex-col h-screen">
       <Navbar
         title={listTitle}
         className="text-white"
         left={<NavbarBackLink href="/" />}
       />
-      <List insetIos>{taskComponents}</List>
-      <footer className="fixed bottom-0 left-0 w-full bg-white pb-safe border-t">
+      <List insetIos className="flex-1 overflow-y-auto">{taskComponents}</List>
+      <footer className="shrink-0 bg-white pb-safe border-t">
         <form ref={formRef} action={clientAction}>
           <ListInput
             name="title"
