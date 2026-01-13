@@ -16,7 +16,7 @@ export default async function TaskDetailPage({
   const taskList = await taskListQuery.get(id, { sessionToken });
   console.log(`List name is ${taskList.get("title")}`);
 
-  const query = new Parse.Query("Task").ascending("title");
+  const query = new Parse.Query("Task").ascending("updatedAt");
   query.equalTo("list", taskList);
 
   var tasks: Task[] = [];
