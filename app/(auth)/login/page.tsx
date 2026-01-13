@@ -4,45 +4,53 @@ import { useActionState } from "react";
 import { loginAction } from "./actions";
 import styles from "./login.module.css";
 import Image from "next/image";
+import { Block, Navbar, Page } from "konsta/react";
 
 export default function LoginPage() {
   const [state, formAction, isPending] = useActionState(loginAction, null);
   return (
-    <div className={styles.container}>
-      <form className={styles.loginCard} action={formAction}>
-        <h1>Welcome to ToDoNext</h1>
+    <Page className="flex flex-col h-screen overflow-y-auto">
+      <Navbar title="ToDoNext" centerTitle />
+      <div className="flex-1 flex flex-col items-center justify-center p-4">
         <Image
           src="/login-image.png"
           alt="Login greeting"
           width={304}
-          loading="eager"
           height={249}
+          loading="eager"
         />
-        <p>Please, sign in to manage your tasks</p>
-        {/* Render the error message */}
-        {state?.error && <p className={styles.errorMessage}>{state.error}</p>}
-        <input
-          name="email"
-          type="email"
-          placeholder="Email"
-          className={styles.input}
-          required
-        />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          className={styles.input}
-          required
-        />
-        <button
-          type="submit"
-          className={styles.loginButton}
-          disabled={isPending}
-        >
-          {isPending ? "Signing In..." : "Sign In"}
-        </button>
-      </form>
-    </div>
+        <h1 className="text-2xl font-bold mt-4">Welcome</h1>
+        <p className="text-gray-500">Please, sign in to manage your tasks</p>
+        <Block insetIos>
+          <form action={formAction} className="w-full">
+            {/* Render the error message */}
+            {state?.error && (
+              <p className={styles.errorMessage}>{state.error}</p>
+            )}
+            <input
+              name="email"
+              type="email"
+              placeholder="Email"
+              className={styles.input}
+              required
+            />
+            <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              className={styles.input}
+              required
+            />
+            <button
+              type="submit"
+              className={styles.loginButton}
+              disabled={isPending}
+            >
+              {isPending ? "Signing In..." : "Sign In"}
+            </button>
+          </form>
+        </Block>
+      </div>
+    </Page>
   );
 }

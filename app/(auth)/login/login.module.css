@@ -1,24 +1,3 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100dvh;
-  background-color: white;
-  overflow: hidden;
-  overflow-y: auto;
-}
-
-.loginCard {
-  padding: 2rem;
-  width: 80%;
-  max-width: 400px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .errorMessage {
   padding: 10px;
   background-color: #fde8e8;
@@ -47,6 +26,6 @@
   transition: background 0.2s;
 }
 
-.login:hover {
+.loginButton:hover {
   background-color: #0056b3;
 }
