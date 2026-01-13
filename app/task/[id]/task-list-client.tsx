@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useOptimistic, useRef, useTransition } from "react";
 import { Task } from "@/app/lib/definitions";
 import TaskItem from "@/app/ui/task-item";
 import { List, ListInput, Navbar, NavbarBackLink, Page } from "konsta/react";
@@ -19,11 +19,31 @@ export default function TaskListClient({
   listId,
 }: TaskListClientProps) {
   const formRef = useRef<HTMLFormElement>(null);
+  const [isPending, startTransition] = useTransition();
+
+  const [optimisticTasks, addOptimisticTask] = useOptimistic(
+    tasks,
+    (state, newTaskTitle: string) => [
+      ...state,
+      {
+        id: Math.random().toString(),
+        title: newTaskTitle,
+        done: false,
+      },
+    ],
+  );
 
   const clientAction = async (formData: FormData) => {
-    formData.append("listId", listId);
-    await createTaskAction(formData);
+    const title = formData.get("title") as string;
+    if (!title) return;
+
     formRef.current?.reset(); // clear input
+
+    startTransition(async () => {
+      addOptimisticTask(title);
+      formData.append("listId", listId);
+      await createTaskAction(formData);
+    });
   };
 
   const taskComponents = tasks.map((task) => {
@@ -55,7 +75,15 @@ export default function TaskListClient({
         left={<NavbarBackLink href="/" />}
       />
       <List insetIos className="mt-0 z-10">
-        {taskComponents}
+        {optimisticTasks.map((task) => (
+          <TaskItem
+            key={task.id}
+            id={task.id}
+            listId={listId}
+            title={task.title}
+            checked={task.done}
+          />
+        ))}
       </List>
       <footer className="sticky bottom-4 left-0 w-full px-2 z-30 mt-auto">
         <div className="bg-black/30 rounded-2xl p-2 backdrop-blur-xl shadow-lg">
