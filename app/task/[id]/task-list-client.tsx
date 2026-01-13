@@ -71,7 +71,7 @@ export default function TaskListClient({
       <Navbar
         title={listTitle}
         large
-        className="sticky top-0 z-30 text-white"
+        className="sticky top-0 z-30 text-white mx-2"
         left={<NavbarBackLink href="/" />}
       />
       <List insetIos className="mt-0 z-10">
