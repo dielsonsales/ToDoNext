@@ -39,13 +39,14 @@ export default function TaskListClient({
   });
 
   return (
-    <Page className="overflow-auto h-screen">
-      <div 
+    <Page className="overflow-auto h-screen relative pb-safe">
+      {/* The Background Plate for the Navbar */}
+      <div
         className="fixed top-0 left-0 w-full z-20"
-        style={{ 
-          height: '50px',
-          backgroundColor: 'rgb(200, 105, 101)',
-        }} 
+        style={{
+          height: "50px",
+          backgroundColor: "rgb(200, 105, 101)",
+        }}
       />
       <Navbar
         title={listTitle}
@@ -53,11 +54,11 @@ export default function TaskListClient({
         className="sticky top-0 z-30 text-white"
         left={<NavbarBackLink href="/" />}
       />
-      <div className="flex-1 overflow-y-auto overscroll-contain">
-        <List insetIos className="mt-0">{taskComponents}</List>
-      </div>
-      <footer className="shrink-0 pb-safe px-2 mb-4">
-        <div className="bg-black/20 rounded-2xl p-2 backdrop-blur-md shadow-lg">
+      <List insetIos className="mt-0 z-10">
+        {taskComponents}
+      </List>
+      <footer className="sticky bottom-4 left-0 w-full px-2 z-30 mt-auto">
+        <div className="bg-black/20 rounded-2xl p-2 backdrop-blur-xl shadow-lg">
           <form ref={formRef} action={clientAction}>
             <ListInput
               name="title"
