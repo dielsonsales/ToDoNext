@@ -11,16 +11,17 @@ interface TaskItemProps {
 export default function TaskItem({ title, checked, favorite }: TaskItemProps) {
   return (
     <ListItem
-      className="bg-white m-2 rounded-lg shadow-sm"
-      innerClassName="border-none"
+      className="bg-white my-1 mx-2 rounded-lg"
       title={
-        checked ?
-        <del style={{color: "gray"}}>{title}</del> :
-        <span>{title}</span>
+        checked ? (
+          <del style={{ color: "gray" }}>{title}</del>
+        ) : (
+          <span>{title}</span>
+        )
       }
       media={
         <Checkbox
-          className="m-3"
+          className="mx-3"
           component="div"
           checked={checked}
           colors={{
@@ -29,7 +30,11 @@ export default function TaskItem({ title, checked, favorite }: TaskItemProps) {
           onChange={() => console.log("Toggle")}
         />
       }
-      after={<IconButton icon={Star} label="Favorite" color="grey" size={18} />}
+      after={
+        <div className="mx-2">
+          <IconButton icon={Star} label="Favorite" color="grey" size={18} />
+        </div>
+      }
     />
   );
 }
