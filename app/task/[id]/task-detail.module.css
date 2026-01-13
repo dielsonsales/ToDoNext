@@ -1,4 +1,6 @@
 .taskDetailcontainer {
   height: 100dvh;
   background-color: rgb(200, 105, 101);
+  display: flex;
+  flex-direction: column;
 }
