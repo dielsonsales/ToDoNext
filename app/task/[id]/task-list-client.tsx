@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { Task } from "@/app/lib/definitions";
 import TaskItem from "@/app/ui/task-item";
 import { List, ListInput, Navbar, NavbarBackLink, Page } from "konsta/react";
@@ -39,13 +39,23 @@ export default function TaskListClient({
   });
 
   return (
-    <Page className="flex flex-col h-screen">
+    <Page className="overflow-auto h-screen">
+      <div 
+        className="fixed top-0 left-0 w-full z-20"
+        style={{ 
+          height: '50px',
+          backgroundColor: 'rgb(200, 105, 101)',
+        }} 
+      />
       <Navbar
         title={listTitle}
-        className="text-white"
+        large
+        className="sticky top-0 z-30 text-white"
         left={<NavbarBackLink href="/" />}
       />
-      <List insetIos className="flex-1 overflow-y-auto">{taskComponents}</List>
+      <div className="flex-1 overflow-y-auto overscroll-contain">
+        <List insetIos className="mt-0">{taskComponents}</List>
+      </div>
       <footer className="shrink-0 pb-safe px-2 mb-4">
         <div className="bg-black/20 rounded-2xl p-2 backdrop-blur-md shadow-lg">
           <form ref={formRef} action={clientAction}>
