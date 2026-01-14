@@ -5,7 +5,8 @@ import { Task } from "@/app/lib/definitions";
 import TaskItem from "@/app/ui/task-item";
 import { List, ListInput, Navbar, NavbarBackLink, Page } from "konsta/react";
 import { createTaskAction } from "./actions";
-import { Plus } from "lucide-react";
+import { ChevronLeft, Plus } from "lucide-react";
+import Link from "next/link";
 
 interface TaskListClientProps {
   tasks: Task[];
@@ -72,7 +73,11 @@ export default function TaskListClient({
         title={listTitle}
         large
         className="sticky top-0 z-30 text-white mx-2"
-        left={<NavbarBackLink href="/" />}
+        left={
+          <Link href={"/"}>
+            <ChevronLeft size={27} />
+          </Link>
+        }
       />
       <List insetIos className="mt-0 z-10">
         {optimisticTasks.map((task) => (
