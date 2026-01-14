@@ -1,7 +1,6 @@
 "use client";
 
-import styles from "./home-client.module.css";
-import { Block, List, Page } from "konsta/react";
+import { List, Page } from "konsta/react";
 import HomeHeader from "./ui/home-header";
 import NewListButton from "./ui/new-list-button";
 
