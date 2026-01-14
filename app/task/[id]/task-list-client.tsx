@@ -76,14 +76,14 @@ export default function TaskListClient({
       <Navbar
         title={listTitle}
         large
-        className="sticky top-0 z-30 text-white mx-2"
+        className="sticky top-0 z-30 text-white"
         left={
           <Link href={"/"}>
             <ChevronLeft size={27} />
           </Link>
         }
       />
-      <List insetIos className="mt-0 z-10">
+      <List className="mt-0 z-10">
         {optimisticTasks.map((task) => (
           <TaskItem
             key={task.id}
