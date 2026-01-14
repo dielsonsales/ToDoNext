@@ -1,29 +1,20 @@
 import { Trash2 } from "lucide-react";
 import IconButton from "./icon-button";
 import { Checkbox, ListItem } from "konsta/react";
-import { deleteTaskAction } from "../task/[id]/actions";
 
 interface TaskItemProps {
-  id: string;
-  listId: string;
   title: string;
   checked: boolean;
+  onToggle: () => void;
+  onDelete: () => void;
 }
 
 export default function TaskItem({
-  id,
-  listId,
   title,
   checked,
+  onToggle,
+  onDelete,
 }: TaskItemProps) {
-  const handleDelete = async () => {
-    const confirmed = window.confirm(
-      `Are you sure you want to delete "${title}"`,
-    );
-    if (!confirmed) return;
-    await deleteTaskAction(id, listId);
-  };
-
   return (
     <ListItem
       className="bg-white my-1 mx-2 rounded-lg"
@@ -42,7 +33,7 @@ export default function TaskItem({
           colors={{
             bgCheckedIos: "bg-red-500",
           }}
-          onChange={() => console.log("Toggle")}
+          onChange={onToggle}
         />
       }
       after={
@@ -52,7 +43,7 @@ export default function TaskItem({
             label="Favorite"
             color="darkRed"
             size={18}
-            onClick={handleDelete}
+            onClick={onDelete}
           />
         </div>
       }

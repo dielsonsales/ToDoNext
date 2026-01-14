@@ -3,8 +3,8 @@
 import { useOptimistic, useRef, useTransition } from "react";
 import { Task } from "@/app/lib/definitions";
 import TaskItem from "@/app/ui/task-item";
-import { List, ListInput, Navbar, NavbarBackLink, Page } from "konsta/react";
-import { createTaskAction } from "./actions";
+import { List, ListInput, Navbar, Page } from "konsta/react";
+import { createTaskAction, deleteTaskAction, toggleTask } from "./actions";
 import { ChevronLeft, Plus } from "lucide-react";
 import Link from "next/link";
 
@@ -21,6 +21,22 @@ export default function TaskListClient({
 }: TaskListClientProps) {
   const formRef = useRef<HTMLFormElement>(null);
   const [isPending, startTransition] = useTransition();
+
+  const handleToggle = async (taskId: string, isDone: boolean) => {
+    startTransition(async () => {
+      await toggleTask(taskId, isDone);
+    });
+  };
+
+  const handleDelete = async (taskId: string, title: string) => {
+    const confirmed = window.confirm(
+      `Are you sure you want to delete "${title}"`,
+    );
+    if (!confirmed) return;
+    startTransition(async () => {
+      await deleteTaskAction(taskId, listId);
+    });
+  };
 
   const [optimisticTasks, addOptimisticTask] = useOptimistic(
     tasks,
@@ -47,18 +63,6 @@ export default function TaskListClient({
     });
   };
 
-  const taskComponents = tasks.map((task) => {
-    return (
-      <TaskItem
-        key={task.id}
-        id={task.id}
-        listId={listId}
-        title={task.title}
-        checked={task.done}
-      />
-    );
-  });
-
   return (
     <Page className="overflow-auto h-screen relative pb-safe">
       {/* The Background Plate for the Navbar */}
@@ -83,10 +87,10 @@ export default function TaskListClient({
         {optimisticTasks.map((task) => (
           <TaskItem
             key={task.id}
-            id={task.id}
-            listId={listId}
             title={task.title}
             checked={task.done}
+            onToggle={() => handleToggle(task.id, task.done)}
+            onDelete={() => handleDelete(task.id, task.title)}
           />
         ))}
       </List>
