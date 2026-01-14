@@ -28,12 +28,11 @@ export default function TaskItem({
       media={
         <Checkbox
           className="mx-3"
-          component="div"
           checked={checked}
           colors={{
             bgCheckedIos: "bg-red-500",
           }}
-          onChange={onToggle}
+          onChange={(e) => onToggle()}
         />
       }
       after={

@@ -46,18 +46,23 @@ export async function deleteTaskAction(taskId: string, listId: string) {
   }
 }
 
-export async function toggleTask(taskId: string, isDone: boolean) {
+export async function toggleTask(
+  taskId: string,
+  isDone: boolean,
+  listId: string,
+) {
   const sessionToken = await getCurrentSessionToken();
   try {
     const Task = Parse.Object.extend("Task");
     const task = new Task();
     task.id = taskId;
-    await task.update(
+    await task.save(
       {
         done: !isDone,
       },
       { sessionToken },
     );
+    revalidatePath(`/task/${listId}`);
   } catch (error) {
     console.error("Parse update error:", error);
   }

@@ -24,7 +24,7 @@ export default function TaskListClient({
 
   const handleToggle = async (taskId: string, isDone: boolean) => {
     startTransition(async () => {
-      await toggleTask(taskId, isDone);
+      await toggleTask(taskId, isDone, listId);
     });
   };
 
