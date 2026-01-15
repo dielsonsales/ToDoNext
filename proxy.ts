@@ -29,9 +29,7 @@ export default async function proxy(request: NextRequest) {
 
     const isValid = await verifyParseSession(sessionToken);
     if (!isValid) {
-      const response = NextResponse.redirect(new URL("/login", request.url));
-      response.cookies.delete("session_token");
-      return response;
+      return NextResponse.redirect(new URL("/login", request.url));
     }
   }
 

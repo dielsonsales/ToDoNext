@@ -22,7 +22,7 @@ export async function loginAction(prevState: any, formData: FormData) {
       maxAge: 3600,
       httpOnly: true, // XSS protection
       secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
+      sameSite: "lax",
     });
   } catch (error: any) {
     return { error: "Invalid email or password" };
