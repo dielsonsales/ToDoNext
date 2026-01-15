@@ -29,6 +29,7 @@ export default function TaskListClient({
 
   const handleToggle = async (taskId: string, isDone: boolean) => {
     startTransition(async () => {
+      addOptimisticTask({ type: "toggle", payload: taskId })
       await toggleTask(taskId, isDone, listId);
     });
   };
@@ -39,6 +40,7 @@ export default function TaskListClient({
     );
     if (!confirmed) return;
     startTransition(async () => {
+      addOptimisticTask({ type: "delete", payload: taskId })
       await deleteTaskAction(taskId, listId);
     });
   };
