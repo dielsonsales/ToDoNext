@@ -7,6 +7,7 @@ import { List, ListInput, Navbar, Page } from "konsta/react";
 import { createTaskAction, deleteTaskAction, toggleTask } from "./actions";
 import { ChevronLeft, Plus } from "lucide-react";
 import Link from "next/link";
+import { taskReducer } from "./task-reducer";
 
 interface TaskListClientProps {
   tasks: Task[];
@@ -21,6 +22,10 @@ export default function TaskListClient({
 }: TaskListClientProps) {
   const formRef = useRef<HTMLFormElement>(null);
   const [isPending, startTransition] = useTransition();
+  const [optimisticTasks, addOptimisticTask] = useOptimistic(
+    tasks,
+    taskReducer,
+  );
 
   const handleToggle = async (taskId: string, isDone: boolean) => {
     startTransition(async () => {
@@ -38,26 +43,14 @@ export default function TaskListClient({
     });
   };
 
-  const [optimisticTasks, addOptimisticTask] = useOptimistic(
-    tasks,
-    (state, newTaskTitle: string) => [
-      ...state,
-      {
-        id: Math.random().toString(),
-        title: newTaskTitle,
-        done: false,
-      },
-    ],
-  );
-
-  const clientAction = async (formData: FormData) => {
+  const handleCreate = async (formData: FormData) => {
     const title = formData.get("title") as string;
     if (!title) return;
 
     formRef.current?.reset(); // clear input
 
     startTransition(async () => {
-      addOptimisticTask(title);
+      addOptimisticTask({ type: "add", payload: title });
       formData.append("listId", listId);
       await createTaskAction(formData);
     });
@@ -96,7 +89,7 @@ export default function TaskListClient({
       </List>
       <footer className="sticky bottom-4 left-0 w-full px-2 z-30 mt-auto">
         <div className="bg-black/30 rounded-2xl p-2 backdrop-blur-xl shadow-lg">
-          <form ref={formRef} action={clientAction}>
+          <form ref={formRef} action={handleCreate}>
             <ListInput
               name="title"
               type="text"
