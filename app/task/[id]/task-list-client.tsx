@@ -1,9 +1,16 @@
 "use client";
 
-import { useOptimistic, useRef, useTransition } from "react";
+import { useOptimistic, useRef, useState, useTransition } from "react";
 import { Task } from "@/app/lib/definitions";
 import TaskItem from "@/app/ui/task-item";
-import { List, ListInput, Navbar, Page } from "konsta/react";
+import {
+  Dialog,
+  DialogButton,
+  List,
+  ListInput,
+  Navbar,
+  Page,
+} from "konsta/react";
 import { createTaskAction, deleteTaskAction, toggleTask } from "./actions";
 import { ChevronLeft, Plus } from "lucide-react";
 import Link from "next/link";
@@ -26,23 +33,20 @@ export default function TaskListClient({
     tasks,
     taskReducer,
   );
+  const [deleteCandidate, setDeleteCandidate] = useState<{
+    id: string;
+    title: string;
+  } | null>(null);
 
   const handleToggle = async (taskId: string, isDone: boolean) => {
     startTransition(async () => {
-      addOptimisticTask({ type: "toggle", payload: taskId })
+      addOptimisticTask({ type: "toggle", payload: taskId });
       await toggleTask(taskId, isDone, listId);
     });
   };
 
   const handleDelete = async (taskId: string, title: string) => {
-    const confirmed = window.confirm(
-      `Are you sure you want to delete "${title}"`,
-    );
-    if (!confirmed) return;
-    startTransition(async () => {
-      addOptimisticTask({ type: "delete", payload: taskId })
-      await deleteTaskAction(taskId, listId);
-    });
+    setDeleteCandidate({ id: taskId, title: title });
   };
 
   const handleCreate = async (formData: FormData) => {
@@ -104,6 +108,35 @@ export default function TaskListClient({
           </form>
         </div>
       </footer>
+      <Dialog
+        className="bg-white/95 backdrop-blur-none text-black"
+        opened={!!deleteCandidate}
+        onBackdropClick={() => setDeleteCandidate(null)}
+        title="Delete task"
+        content={`Are you sure you want to delete "${deleteCandidate?.title}"?`}
+        buttons={
+          <>
+            <DialogButton onClick={() => setDeleteCandidate(null)}>
+              Cencel
+            </DialogButton>
+            <DialogButton
+              onClick={() => {
+                if (!deleteCandidate) return;
+                startTransition(async () => {
+                  addOptimisticTask({
+                    type: "delete",
+                    payload: deleteCandidate.id,
+                  });
+                  await deleteTaskAction(deleteCandidate.id, listId);
+                });
+                setDeleteCandidate(null);
+              }}
+            >
+              Delete
+            </DialogButton>
+          </>
+        }
+      />
     </Page>
   );
 }
