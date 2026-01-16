@@ -21,47 +21,45 @@ export default function LoginPage() {
         />
         <h1 className="text-2xl font-bold mt-4">Welcome</h1>
         <p className="text-gray-500">Please, sign in to manage your tasks</p>
-        <Block insetIos>
-          <form action={formAction}>
-            {/* Render the error message */}
-            {state?.error && (
-              <p className={styles.errorMessage}>{state.error}</p>
-            )}
-            <input
-              name="email"
-              type="email"
-              placeholder="Email"
-              className={styles.input}
-              required
-            />
-            <input
-              name="password"
-              type="password"
-              placeholder="Password"
-              className={styles.input}
-              required
-            />
-            <button
-              type="submit"
-              className="
-                w-full
-                p-3
-                mt-2
-                flex items-center justify-center
-                bg-[#0070f3]
-                hover:bg-[#0056b3]
-                text-white
-                font-bold
-                rounded-[6px]
-                transition-colors
-                duration-200
-              "
-              disabled={isPending}
-            >
-              {isPending ? "Signing In..." : "Sign In"}
-            </button>
-          </form>
-        </Block>
+        <form action={formAction}>
+          {/* Render the error message */}
+          {state?.error && (
+            <p className={styles.errorMessage}>{state.error}</p>
+          )}
+          <input
+            name="email"
+            type="email"
+            placeholder="Email"
+            className={styles.input}
+            required
+          />
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            className={styles.input}
+            required
+          />
+          <button
+            type="submit"
+            className="
+              w-full
+              p-3
+              mt-2
+              flex items-center justify-center
+              bg-[#0070f3]
+              hover:bg-[#0056b3]
+              text-white
+              font-bold
+              rounded-[6px]
+              transition-colors
+              duration-200
+            "
+            disabled={isPending}
+          >
+            {isPending ? "Signing In..." : "Sign In"}
+          </button>
+        </form>
       </div>
     </Page>
   );
