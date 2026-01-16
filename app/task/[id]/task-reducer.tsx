@@ -11,7 +11,7 @@ export function taskReducer(state: Task[], action: TaskAction): Task[] {
       return [
         ...state,
         {
-          id: Math.random().toString(),
+          id: `task-${crypto.randomUUID()}`,
           title: action.payload,
           done: false,
         },
