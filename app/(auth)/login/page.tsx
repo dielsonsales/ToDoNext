@@ -11,7 +11,7 @@ export default function LoginPage() {
   return (
     <Page className="flex flex-col h-screen overflow-y-auto">
       <Navbar title="ToDoNext" centerTitle />
-      <div className="flex-1 flex flex-col items-center justify-center p-4">
+      <div className="flex-1 flex flex-col items-center justify-center">
         <Image
           src="/login-image.png"
           alt="Login greeting"
@@ -22,7 +22,7 @@ export default function LoginPage() {
         <h1 className="text-2xl font-bold mt-4">Welcome</h1>
         <p className="text-gray-500">Please, sign in to manage your tasks</p>
         <Block insetIos>
-          <form action={formAction} className="w-full">
+          <form action={formAction}>
             {/* Render the error message */}
             {state?.error && (
               <p className={styles.errorMessage}>{state.error}</p>
@@ -43,7 +43,19 @@ export default function LoginPage() {
             />
             <button
               type="submit"
-              className={styles.loginButton}
+              className="
+                w-full
+                p-3
+                mt-2
+                flex items-center justify-center
+                bg-[#0070f3]
+                hover:bg-[#0056b3]
+                text-white
+                font-bold
+                rounded-[6px]
+                transition-colors
+                duration-200
+              "
               disabled={isPending}
             >
               {isPending ? "Signing In..." : "Sign In"}
