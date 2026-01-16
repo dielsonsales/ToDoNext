@@ -21,7 +21,7 @@ export default function LoginPage() {
         />
         <h1 className="text-2xl font-bold mt-4">Welcome</h1>
         <p className="text-gray-500">Please, sign in to manage your tasks</p>
-        <form action={formAction}>
+        <form action={formAction} className="w-full max-w-md px-6">
           {/* Render the error message */}
           {state?.error && (
             <p className={styles.errorMessage}>{state.error}</p>
