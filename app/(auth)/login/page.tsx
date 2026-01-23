@@ -21,9 +21,7 @@ export default function LoginPage() {
         <p className="text-gray-500">Please, sign in to manage your tasks</p>
         <form action={formAction} className="w-full max-w-md px-6">
           {/* Render the error message */}
-          {state?.error && (
-            <p className={styles.errorMessage}>{state.error}</p>
-          )}
+          {state?.error && <p className={styles.errorMessage}>{state.error}</p>}
           <input
             name="email"
             type="email"
