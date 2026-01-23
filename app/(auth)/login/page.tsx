@@ -4,14 +4,12 @@ import { useActionState } from "react";
 import { loginAction } from "./actions";
 import styles from "./login.module.css";
 import Image from "next/image";
-import { Block, Navbar, Page } from "konsta/react";
 
 export default function LoginPage() {
   const [state, formAction, isPending] = useActionState(loginAction, null);
   return (
-    <Page className="flex flex-col h-screen overflow-y-auto">
-      <Navbar title="ToDoNext" centerTitle />
-      <div className="flex-1 flex flex-col items-center justify-center">
+    <div className="flex flex-col h-screen overflow-y-auto">
+      <main className="flex-1 flex flex-col items-center justify-center">
         <Image
           src="/login-image.png"
           alt="Login greeting"
@@ -19,7 +17,7 @@ export default function LoginPage() {
           height={249}
           loading="eager"
         />
-        <h1 className="text-2xl font-bold mt-4">Welcome</h1>
+        <h1 className="text-2xl font-bold mt-4">Welcome to ToDoNext</h1>
         <p className="text-gray-500">Please, sign in to manage your tasks</p>
         <form action={formAction} className="w-full max-w-md px-6">
           {/* Render the error message */}
@@ -60,7 +58,7 @@ export default function LoginPage() {
             {isPending ? "Signing In..." : "Sign In"}
           </button>
         </form>
-      </div>
-    </Page>
+      </main>
+    </div>
   );
 }
