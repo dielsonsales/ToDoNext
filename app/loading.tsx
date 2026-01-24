@@ -12,8 +12,12 @@ export default function Loading() {
         {[...Array(8)].map((_, i) => (
           <ListItem
             key={i}
-            title={<div className="h-4 w-48 bg-gray-200 rounded animate-pulse" />}
-            media={<div className="h-6 w-6 bg-gray-300 rounded-full animate-pulse" />}
+            title={
+              <div className="h-4 w-48 bg-gray-200 rounded animate-pulse" />
+            }
+            media={
+              <div className="h-6 w-6 bg-gray-300 rounded-full animate-pulse" />
+            }
           />
         ))}
       </List>

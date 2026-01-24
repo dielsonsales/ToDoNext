@@ -21,15 +21,15 @@ Assume the Next.js version used in this project is the 16 (the new current). Her
 - Turbopack now supports filesystem caching in development, storing compiler artifacts on disk between runs for significantly faster compile times across restarts.
 
 ```ts
-import type { NextConfig } from 'next'
- 
+import type { NextConfig } from "next";
+
 const nextConfig: NextConfig = {
   experimental: {
     turbopackFileSystemCacheForDev: true, // enables filesystem caching
   },
-}
- 
-export default nextConfig
+};
+
+export default nextConfig;
 ```
 
 - Version 15 introduced Async Request APIs as a breaking change with temporary synchronous compat. Now synchronous access is fully removed. These APIs can only be accessed asynchronously:
