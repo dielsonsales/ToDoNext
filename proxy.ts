@@ -48,6 +48,7 @@ async function verifyParseSession(token: string): Promise<boolean> {
     });
     return res.ok;
   } catch (error) {
+    console.error("Verifying parse session gave an error:", error);
     return false;
   }
 }
