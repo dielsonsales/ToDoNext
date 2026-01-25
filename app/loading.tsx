@@ -5,10 +5,10 @@ import { List, ListItem, Page } from "konsta/react";
 export default function Loading() {
   return (
     <Page>
-      <div className="p-4 bg-gray-50 animate-pulse">
+      <div className="p-4 mx-2 bg-gray-50 animate-pulse">
         <div className="h-8 w-32 bg-gray-200 rounded mb-4" />
       </div>
-      <List insetIos className="mt-0">
+      <List className="mt-0 mx-2">
         {[...Array(8)].map((_, i) => (
           <ListItem
             key={i}
